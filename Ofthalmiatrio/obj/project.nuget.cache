@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sqDIAdB91PynlVqRmXuOEVo5gvDuFFlt+DI4kp4wHMe1nmL3xfIypnzzvt4zQgWAq5IrMOuNz8dMy2seh49AsA==",
+  "dgSpecHash": "HAEFvbvcQBT0WBA1Uoi5mT8hswQe7YM5XKgh5PdMVXjdj5lwjGeLh23UEe8GgJvbTCWeq6eVw4Cig6uDQPPt0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mr_Dmn\\source\\repos\\Ofthalmiatrio\\Ofthalmiatrio\\Ofthalmiatrio.csproj",
+  "projectFilePath": "C:\\Users\\mr_Dmn\\source\\repos\\Ofthalmiatrio\\ofthalmos\\Ofthalmiatrio\\Ofthalmiatrio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mr_Dmn\\.nuget\\packages\\aspose.pdf\\22.9.0\\aspose.pdf.22.9.0.nupkg.sha512",
     "C:\\Users\\mr_Dmn\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
