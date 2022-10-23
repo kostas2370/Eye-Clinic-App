@@ -1799,11 +1799,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mr_Dmn\\source\\repos\\Ofthalmiatrio\\ofthalmos\\Ofthalmiatrio\\Ofthalmiatrio.csproj",
+      "projectUniqueName": "C:\\Users\\mr_Dmn\\source\\repos\\Ofthalmiatrio\\Ofthalmiatrio\\Ofthalmiatrio.csproj",
       "projectName": "Ofthalmiatrio",
-      "projectPath": "C:\\Users\\mr_Dmn\\source\\repos\\Ofthalmiatrio\\ofthalmos\\Ofthalmiatrio\\Ofthalmiatrio.csproj",
+      "projectPath": "C:\\Users\\mr_Dmn\\source\\repos\\Ofthalmiatrio\\Ofthalmiatrio\\Ofthalmiatrio.csproj",
       "packagesPath": "C:\\Users\\mr_Dmn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mr_Dmn\\source\\repos\\Ofthalmiatrio\\ofthalmos\\Ofthalmiatrio\\obj\\",
+      "outputPath": "C:\\Users\\mr_Dmn\\source\\repos\\Ofthalmiatrio\\Ofthalmiatrio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
