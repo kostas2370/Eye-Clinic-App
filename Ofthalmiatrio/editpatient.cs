@@ -17,7 +17,9 @@ namespace Ofthalmiatrio
         private string amka;
         public editpatient(String AMKA,String Fullname,String asfaleiam)
         {
+
             InitializeComponent();
+            setstyle.setStyle(this);
             fullname.Text = Fullname;
             asfaleia.Text = asfaleiam;
             amka = AMKA;
@@ -35,16 +37,21 @@ namespace Ofthalmiatrio
             }
             else
             {
-               bool t= DatabaseDev.updateAstheneis(amka, fullname.Text, asfaleia.Text);
-               if (t)
+
+                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to update this user ?", "Are you sure ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    
-                    MessageBox.Show("Success");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Fail");
+                    bool t = DatabaseDev.updateAstheneis(amka, fullname.Text, asfaleia.Text);
+                    if (t)
+                    {
+
+                        MessageBox.Show("Success");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail");
+                    }
                 }
             }
 

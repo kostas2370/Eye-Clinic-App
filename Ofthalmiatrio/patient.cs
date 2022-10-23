@@ -24,7 +24,9 @@ namespace Ofthalmiatrio
         {
             
             InitializeComponent();;
-           
+            setstyle.setStyle(this);
+
+
             patient_info.Read();
             
             AMKA.Text = patient_info["AMKA"].ToString();
@@ -33,7 +35,7 @@ namespace Ofthalmiatrio
             episkepseis.Text = patient_info["Episkepseis"].ToString();
             eispraxeis.Text = patient_info["Xrhmatiko_Poso"].ToString();
             
-            var last_data = DatabaseDev.getLastRantevou(patient_info["AMKA"].ToString());
+            var last_data = DatabaseDev.getLastVisit(patient_info["AMKA"].ToString());
             if (last_data.HasRows)
             {
                 
@@ -58,7 +60,7 @@ namespace Ofthalmiatrio
 
                 id = last_data["id"].ToString();
 
-                 rantevou = DatabaseDev.getRantevou(AMKA.Text);
+                 rantevou = DatabaseDev.getVisit(AMKA.Text);
                 last_data.Close();
                 int x = 0;
                 while (rantevou.Read())
@@ -152,7 +154,7 @@ namespace Ofthalmiatrio
             if (rantevougrid.Columns[e.ColumnIndex].Name == "Print" | rantevougrid.Columns[e.ColumnIndex].Name == "Save" | rantevougrid.Columns[e.ColumnIndex].Name == "Delete" | rantevougrid.Columns[e.ColumnIndex].Name == "Edit")
             {
                 string ids = rantevougrid.Rows[e.RowIndex].Cells["ids"].Value.ToString();
-                var rantevous = DatabaseDev.getRantevou(AMKA.Text,ids);
+                var rantevous = DatabaseDev.getVisit(AMKA.Text,ids);
           
                 rantevous.Read();
                 
@@ -188,7 +190,7 @@ namespace Ofthalmiatrio
 
                         EditRant form = new EditRant(ids, AMKA.Text, rantevous["hmerominia"].ToString(), rantevous["myopia_aristero"].ToString(), rantevous["myopia_dexio"].ToString(), rantevous["presviopia_aristero"].ToString(), rantevous["presviopia_dexio"].ToString(), rantevous["ypermatropia_aristero"].ToString(), rantevous["ypermatropia_dexio"].ToString(), rantevous["astigmatismos_aristero"].ToString(), rantevous["astigmatismos_dexio"].ToString(), rantevous["piesh_aristero"].ToString(), rantevous["piesh_dexio"].ToString(), rantevous["asthenia"].ToString(), rantevous["therapia"].ToString(), rantevous["farmaka"].ToString(), rantevous["diarkeia_therapeias"].ToString(), rantevous["Apotelesmata"].ToString());
                         form.ShowDialog();
-                        var new_data = DatabaseDev.getRantevou(ids);
+                        var new_data = DatabaseDev.getVisit(ids);
                         new_data.Read();
                         this.Close();
 
@@ -199,8 +201,15 @@ namespace Ofthalmiatrio
 
                     else
                     {
-                        DatabaseDev.deleteRantevou(ids, AMKA.Text);
-                        rantevougrid.Rows[e.RowIndex].Visible = false;
+                        DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this visit ?", "Are you sure ?", MessageBoxButtons.YesNo);
+
+                        if(dialogResult == DialogResult.Yes)
+                        {
+                            rantevougrid.Rows[e.RowIndex].Visible = false;
+
+                        }
+                        DatabaseDev.deleteVisit(ids, AMKA.Text);
+                       
 
 
                     }
@@ -248,7 +257,7 @@ namespace Ofthalmiatrio
         private void button3_Click(object sender, EventArgs e)
 
         {
-            rantevou = DatabaseDev.getRantevou(AMKA.Text);
+            rantevou = DatabaseDev.getVisit(AMKA.Text);
             if (rantevou.StepCount >= 1) { 
             
             
@@ -270,7 +279,7 @@ namespace Ofthalmiatrio
 
                 string ids = rantevougrid.Rows[e.RowIndex].Cells["ids"].FormattedValue.ToString();
                 var asthenhs = DatabaseDev.getAstheneis(AMKA.Text);
-                var rantevou = DatabaseDev.getRantevou(AMKA.Text, id: ids);
+                var rantevou = DatabaseDev.getVisit(AMKA.Text, id: ids);
                 visitform form = new visitform(asthenhs, rantevou);
                 form.ShowDialog();
             }catch (Exception x)
@@ -279,6 +288,11 @@ namespace Ofthalmiatrio
             }
 
            ;
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

@@ -16,6 +16,7 @@ namespace Ofthalmiatrio
         public EditRant(string id,string AMKA, string visit_date, string mia, string mid, string pa, string pd, string ya, string yd, string aa, string ad, string pia, string pid, string asthenia, string therapeia, string farmaka, string diarkeia, string apotelesma)
         {
             InitializeComponent();
+            setstyle.setStyle(this);
             this.id = id;   
             amka.Text = AMKA;
             hmerominia.Text = visit_date;
@@ -40,9 +41,13 @@ namespace Ofthalmiatrio
         {
             try
             {
-                DatabaseDev.updateRantevou(id, myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapia.Text, farmak.Text, diarkeia_therapeias.Text,apot.Text);
-                MessageBox.Show("Success");
-                this.Close();
+                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to update this visit ?", "Are you sure ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DatabaseDev.updateVisit(id, myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapia.Text, farmak.Text, diarkeia_therapeias.Text, apot.Text);
+                    MessageBox.Show("Success");
+                    this.Close();
+                }
             
             }catch (Exception x)
             {

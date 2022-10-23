@@ -121,6 +121,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Users";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // movetomedicine
             // 
@@ -211,7 +212,7 @@
             this.add_med_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_med_butt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.add_med_butt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.add_med_butt.Location = new System.Drawing.Point(126, 530);
+            this.add_med_butt.Location = new System.Drawing.Point(133, 531);
             this.add_med_butt.Name = "add_med_butt";
             this.add_med_butt.Size = new System.Drawing.Size(156, 61);
             this.add_med_butt.TabIndex = 5;

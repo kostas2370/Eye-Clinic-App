@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace Ofthalmiatrio
 {
-    public partial class pharmacist : Form
+    public partial class secreteriat : Form
     {
-        public pharmacist()
+        public secreteriat()
         {
             InitializeComponent();
+            setstyle.setStyle(this);
+
+        }
+
+        private void secreteriat_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -18,8 +18,9 @@ namespace Ofthalmiatrio
         public patients_admin()
         {
             InitializeComponent();
-          
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            setstyle.setStyle(this);
+
+
             var amk = DatabaseDev.getAMKAS();
             AMKA_CHOICES.DropDownStyle = ComboBoxStyle.DropDownList;
             if (amk.HasRows)
@@ -97,7 +98,7 @@ namespace Ofthalmiatrio
         {
             var comboBox = (ComboBox)sender;
 
-            var last_rantevou = DatabaseDev.getLastRantevou(comboBox.Text);
+            var last_rantevou = DatabaseDev.getLastVisit(comboBox.Text);
             if (last_rantevou.HasRows)
             {
                 last_rantevou.Read();
@@ -239,6 +240,14 @@ namespace Ofthalmiatrio
         private void visit_date_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            this.Hide();
+            form.ShowDialog();
+            this.Close();
         }
     }
 }

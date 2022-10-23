@@ -16,6 +16,8 @@ namespace Ofthalmiatrio
         public visitform(SQLiteDataReader patient_info, SQLiteDataReader rantevou)
         {
             InitializeComponent();
+            setstyle.setStyle(this);
+
             if (patient_info.HasRows)
             {
                 patient_info.Read();

@@ -16,7 +16,9 @@ namespace Ofthalmiatrio
         {
             InitializeComponent();
             auth.Select();
-            var meds=DatabaseDev.getMedicine();
+            setstyle.setStyle(this);
+
+            var meds =DatabaseDev.getMedicine();
             if (meds.HasRows)
             {
                 while (meds.Read())
@@ -90,8 +92,12 @@ namespace Ofthalmiatrio
             string ids = medicingridview.Rows[e.RowIndex].Cells["ids"].FormattedValue.ToString();
             if (medicingridview.Columns[e.ColumnIndex].Name == "delete")
             {
-                DatabaseDev.deleteMedicine(ids);
-                medicingridview.Rows[e.RowIndex].Visible = false;
+                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this medicine ?", "Are you sure ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DatabaseDev.deleteMedicine(ids);
+                    medicingridview.Rows[e.RowIndex].Visible = false;
+                }
             }
             else if (medicingridview.Columns[e.ColumnIndex].Name == "Edit")
             {
@@ -105,7 +111,8 @@ namespace Ofthalmiatrio
                 medicingridview.Rows[e.RowIndex].Cells["proms"].Value = update_values["promitheftes"].ToString();
 
 
-            }else if(medicingridview.Columns[e.ColumnIndex].Name == "Save")
+            }
+            else if (medicingridview.Columns[e.ColumnIndex].Name == "Save")
             {
                 string path_name;
                 SaveFileDialog save = new SaveFileDialog();
@@ -119,9 +126,10 @@ namespace Ofthalmiatrio
                     data.Close();
                 }
 
-                   
-                
-            }else if (medicingridview.Columns[e.ColumnIndex].Name == "Print")
+
+
+            }
+            else if (medicingridview.Columns[e.ColumnIndex].Name == "Print")
             {
                 var data = DatabaseDev.getMedicine(ids);
                 data.Read();
@@ -186,6 +194,14 @@ namespace Ofthalmiatrio
                 Row.Visible = true;
             }
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            this.Hide();
+            form.ShowDialog();
+            this.Close();
         }
     }
     }

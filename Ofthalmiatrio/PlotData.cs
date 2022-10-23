@@ -20,8 +20,8 @@ namespace Ofthalmiatrio
         public PlotData(SQLiteDataReader rantevou, string first_rantevou, string last_rantevou)
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox=false;
+            setstyle.setStyle(this);
+
 
             //Creating the plot models
 
@@ -157,8 +157,14 @@ namespace Ofthalmiatrio
             this.piesh.Model =PieshModel;
         }
 
+        private void piesh_Click(object sender, EventArgs e)
+        {
 
+        }
 
-      
+        private void astigmatismos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,6 +16,8 @@ namespace Ofthalmiatrio
         {
             InitializeComponent();
             var data = DatabaseDev.getMedicine(id);
+            setstyle.setStyle(this);
+
             data.Read();
             {
                 ids.Text = data["id"].ToString();

@@ -15,6 +15,13 @@ namespace Ofthalmiatrio
         public giatros()
         {
             InitializeComponent();
+            setstyle.setStyle(this);
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

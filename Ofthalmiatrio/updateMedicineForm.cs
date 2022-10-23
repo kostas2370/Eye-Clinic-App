@@ -16,6 +16,8 @@ namespace Ofthalmiatrio
         public updateMedicineForm(string id)
         {
             InitializeComponent();
+            setstyle.setStyle(this);
+
             this.id = id;
             var data = DatabaseDev.getMedicine(id);
             if (data.HasRows)
@@ -49,15 +51,19 @@ namespace Ofthalmiatrio
                 MessageBox.Show("Onoma is required");
             }
             else {
-                bool j = DatabaseDev.updateMedicine(id, onoma.Text, check, symptomata.Text, promitheftes.Text);
-                if (j)
+                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to update this Medicine ?", "Are you sure ?", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Success");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Failed");
+                    if (DatabaseDev.updateMedicine(id, onoma.Text, check, symptomata.Text, promitheftes.Text))
+                    {
+                        MessageBox.Show("Success");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed");
+                    }
                 }
 
 

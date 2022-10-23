@@ -45,6 +45,27 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.rantevougrid = new System.Windows.Forms.DataGridView();
+            this.ids = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hmerominia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.myd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ypa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ypd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.piea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pied = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asthen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.therap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.farmak = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Save = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Print = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.print_butt = new System.Windows.Forms.Button();
             this.diarkeia = new System.Windows.Forms.Label();
@@ -82,27 +103,6 @@
             this.asfaleia = new System.Windows.Forms.Label();
             this.onomatep = new System.Windows.Forms.Label();
             this.AMKA = new System.Windows.Forms.Label();
-            this.ids = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hmerominia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.myd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ypa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ypd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.piea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pied = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asthen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.therap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.farmak = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Save = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Print = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             label1 = new System.Windows.Forms.Label();
             onomateponymo = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -252,6 +252,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1009, 846);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel3
             // 
@@ -321,6 +322,163 @@
             this.rantevougrid.TabIndex = 0;
             this.rantevougrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rantevougrid_CellContentClick);
             this.rantevougrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rantevougrid_CellContentDoubleClick);
+            // 
+            // ids
+            // 
+            this.ids.Frozen = true;
+            this.ids.HeaderText = "ID";
+            this.ids.Name = "ids";
+            this.ids.ReadOnly = true;
+            this.ids.Width = 50;
+            // 
+            // hmerominia
+            // 
+            this.hmerominia.Frozen = true;
+            this.hmerominia.HeaderText = "Ημερομηνια";
+            this.hmerominia.Name = "hmerominia";
+            this.hmerominia.ReadOnly = true;
+            this.hmerominia.Width = 80;
+            // 
+            // mya
+            // 
+            this.mya.HeaderText = "M.A";
+            this.mya.Name = "mya";
+            this.mya.ReadOnly = true;
+            this.mya.Width = 50;
+            // 
+            // myd
+            // 
+            this.myd.HeaderText = "M.Δ";
+            this.myd.Name = "myd";
+            this.myd.ReadOnly = true;
+            this.myd.Width = 40;
+            // 
+            // pra
+            // 
+            this.pra.HeaderText = "Π.Α";
+            this.pra.Name = "pra";
+            this.pra.ReadOnly = true;
+            this.pra.Width = 40;
+            // 
+            // prd
+            // 
+            this.prd.HeaderText = "Π.Δ";
+            this.prd.Name = "prd";
+            this.prd.ReadOnly = true;
+            this.prd.Width = 40;
+            // 
+            // ypa
+            // 
+            this.ypa.HeaderText = "Y.A";
+            this.ypa.Name = "ypa";
+            this.ypa.ReadOnly = true;
+            this.ypa.Width = 40;
+            // 
+            // ypd
+            // 
+            this.ypd.HeaderText = "Υ.Δ";
+            this.ypd.Name = "ypd";
+            this.ypd.ReadOnly = true;
+            this.ypd.Width = 40;
+            // 
+            // asa
+            // 
+            this.asa.HeaderText = "A.A";
+            this.asa.Name = "asa";
+            this.asa.ReadOnly = true;
+            this.asa.Width = 40;
+            // 
+            // asd
+            // 
+            this.asd.HeaderText = "Α.Δ";
+            this.asd.Name = "asd";
+            this.asd.ReadOnly = true;
+            this.asd.Width = 40;
+            // 
+            // piea
+            // 
+            this.piea.HeaderText = "ΠΙ.Α";
+            this.piea.Name = "piea";
+            this.piea.ReadOnly = true;
+            this.piea.Width = 40;
+            // 
+            // pied
+            // 
+            this.pied.HeaderText = "ΠΙ.Δ";
+            this.pied.Name = "pied";
+            this.pied.ReadOnly = true;
+            this.pied.Width = 40;
+            // 
+            // asthen
+            // 
+            this.asthen.HeaderText = "Aσθένεια";
+            this.asthen.Name = "asthen";
+            this.asthen.ReadOnly = true;
+            this.asthen.Width = 70;
+            // 
+            // therap
+            // 
+            this.therap.HeaderText = "Θεραπεία";
+            this.therap.Name = "therap";
+            this.therap.ReadOnly = true;
+            this.therap.Width = 70;
+            // 
+            // farmak
+            // 
+            this.farmak.HeaderText = "Φάρμακα";
+            this.farmak.Name = "farmak";
+            this.farmak.ReadOnly = true;
+            this.farmak.Width = 70;
+            // 
+            // diark
+            // 
+            this.diark.HeaderText = "Διάρκεια";
+            this.diark.Name = "diark";
+            this.diark.ReadOnly = true;
+            this.diark.Width = 70;
+            // 
+            // apot
+            // 
+            this.apot.HeaderText = "Aποτέλεσμα";
+            this.apot.Name = "apot";
+            this.apot.ReadOnly = true;
+            this.apot.Width = 80;
+            // 
+            // Save
+            // 
+            this.Save.HeaderText = "Save";
+            this.Save.Name = "Save";
+            this.Save.ReadOnly = true;
+            this.Save.Text = "Save";
+            this.Save.UseColumnTextForButtonValue = true;
+            this.Save.Width = 80;
+            // 
+            // Print
+            // 
+            this.Print.HeaderText = "Print";
+            this.Print.Name = "Print";
+            this.Print.ReadOnly = true;
+            this.Print.Text = "Print";
+            this.Print.UseColumnTextForButtonValue = true;
+            this.Print.Width = 80;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 80;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            this.Edit.Width = 80;
             // 
             // panel2
             // 
@@ -734,163 +892,6 @@
             this.AMKA.Size = new System.Drawing.Size(52, 21);
             this.AMKA.TabIndex = 1;
             this.AMKA.Text = "label2";
-            // 
-            // ids
-            // 
-            this.ids.Frozen = true;
-            this.ids.HeaderText = "ID";
-            this.ids.Name = "ids";
-            this.ids.ReadOnly = true;
-            this.ids.Width = 50;
-            // 
-            // hmerominia
-            // 
-            this.hmerominia.Frozen = true;
-            this.hmerominia.HeaderText = "Ημερομηνια";
-            this.hmerominia.Name = "hmerominia";
-            this.hmerominia.ReadOnly = true;
-            this.hmerominia.Width = 80;
-            // 
-            // mya
-            // 
-            this.mya.HeaderText = "M.A";
-            this.mya.Name = "mya";
-            this.mya.ReadOnly = true;
-            this.mya.Width = 50;
-            // 
-            // myd
-            // 
-            this.myd.HeaderText = "M.Δ";
-            this.myd.Name = "myd";
-            this.myd.ReadOnly = true;
-            this.myd.Width = 40;
-            // 
-            // pra
-            // 
-            this.pra.HeaderText = "Π.Α";
-            this.pra.Name = "pra";
-            this.pra.ReadOnly = true;
-            this.pra.Width = 40;
-            // 
-            // prd
-            // 
-            this.prd.HeaderText = "Π.Δ";
-            this.prd.Name = "prd";
-            this.prd.ReadOnly = true;
-            this.prd.Width = 40;
-            // 
-            // ypa
-            // 
-            this.ypa.HeaderText = "Y.A";
-            this.ypa.Name = "ypa";
-            this.ypa.ReadOnly = true;
-            this.ypa.Width = 40;
-            // 
-            // ypd
-            // 
-            this.ypd.HeaderText = "Υ.Δ";
-            this.ypd.Name = "ypd";
-            this.ypd.ReadOnly = true;
-            this.ypd.Width = 40;
-            // 
-            // asa
-            // 
-            this.asa.HeaderText = "A.A";
-            this.asa.Name = "asa";
-            this.asa.ReadOnly = true;
-            this.asa.Width = 40;
-            // 
-            // asd
-            // 
-            this.asd.HeaderText = "Α.Δ";
-            this.asd.Name = "asd";
-            this.asd.ReadOnly = true;
-            this.asd.Width = 40;
-            // 
-            // piea
-            // 
-            this.piea.HeaderText = "ΠΙ.Α";
-            this.piea.Name = "piea";
-            this.piea.ReadOnly = true;
-            this.piea.Width = 40;
-            // 
-            // pied
-            // 
-            this.pied.HeaderText = "ΠΙ.Δ";
-            this.pied.Name = "pied";
-            this.pied.ReadOnly = true;
-            this.pied.Width = 40;
-            // 
-            // asthen
-            // 
-            this.asthen.HeaderText = "Aσθένεια";
-            this.asthen.Name = "asthen";
-            this.asthen.ReadOnly = true;
-            this.asthen.Width = 70;
-            // 
-            // therap
-            // 
-            this.therap.HeaderText = "Θεραπεία";
-            this.therap.Name = "therap";
-            this.therap.ReadOnly = true;
-            this.therap.Width = 70;
-            // 
-            // farmak
-            // 
-            this.farmak.HeaderText = "Φάρμακα";
-            this.farmak.Name = "farmak";
-            this.farmak.ReadOnly = true;
-            this.farmak.Width = 70;
-            // 
-            // diark
-            // 
-            this.diark.HeaderText = "Διάρκεια";
-            this.diark.Name = "diark";
-            this.diark.ReadOnly = true;
-            this.diark.Width = 70;
-            // 
-            // apot
-            // 
-            this.apot.HeaderText = "Aποτέλεσμα";
-            this.apot.Name = "apot";
-            this.apot.ReadOnly = true;
-            this.apot.Width = 80;
-            // 
-            // Save
-            // 
-            this.Save.HeaderText = "Save";
-            this.Save.Name = "Save";
-            this.Save.ReadOnly = true;
-            this.Save.Text = "Save";
-            this.Save.UseColumnTextForButtonValue = true;
-            this.Save.Width = 80;
-            // 
-            // Print
-            // 
-            this.Print.HeaderText = "Print";
-            this.Print.Name = "Print";
-            this.Print.ReadOnly = true;
-            this.Print.Text = "Print";
-            this.Print.UseColumnTextForButtonValue = true;
-            this.Print.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 80;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            this.Edit.Width = 80;
             // 
             // patient
             // 

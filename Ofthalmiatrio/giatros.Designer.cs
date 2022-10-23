@@ -40,6 +40,7 @@
             this.label1.Size = new System.Drawing.Size(178, 65);
             this.label1.TabIndex = 1;
             this.label1.Text = "Giatros";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // giatros
             // 

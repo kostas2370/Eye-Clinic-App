@@ -4,11 +4,14 @@ namespace Ofthalmiatrio
 {
     public partial class Form1 : Form
     {
+        public static string usernamelog;
        
         public Form1()
         {
            
            InitializeComponent();
+
+            setstyle.setStyle(this);
             /*
               if the db doesnt exists it creates the db connection
               and setup the tables
@@ -52,8 +55,11 @@ namespace Ofthalmiatrio
                 {
                      login.Read();
                     {
+                        usernamelog = login["username"].ToString();
+                        MessageBox.Show($"Welcome {usernamelog}");
                         this.Hide();
-                        MessageBox.Show("Success");
+                       
+                        
                         if (login["role"].ToString() == "admin")
                         {
 
@@ -62,25 +68,29 @@ namespace Ofthalmiatrio
                             log.ShowDialog();
                           
                         }
-                        else if (login["role"].ToString() == "ypeythinos_farmakwn")
-                        {
-                            pharmacist log = new pharmacist();
-                            login.Close();
-                            log.ShowDialog();
-                        }
-                        else if (login["role"].ToString() == "giatros")
+           
+                        else if (login["role"].ToString() == "doctor")
                         {
                             giatros log = new giatros();
                             login.Close();
                             log.ShowDialog();
 
                         }
-                        else {
-                            MessageBox.Show("You dont have the rights to login");
+                        else if (login["role"].ToString() == "secretary")
+                        {
+                            secreteriat log = new secreteriat();
                             login.Close();
+                            log.ShowDialog();
 
                         }
-                       
+
+
+                        else {
+                            MessageBox.Show("You dont have role yet");
+                            
+
+                        }
+
                         this.Close();
                     }
 
