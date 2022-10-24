@@ -84,6 +84,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.patientdatagrid = new System.Windows.Forms.DataGridView();
+            this.AMKA_C = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fullname_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_visit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.search_butt = new System.Windows.Forms.Button();
             this.search_at = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -93,6 +98,7 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientdatagrid)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -333,7 +339,7 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(347, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(465, 575);
+            this.panel3.Size = new System.Drawing.Size(465, 715);
             this.panel3.TabIndex = 4;
             // 
             // AMKA_CHOICES
@@ -365,7 +371,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.Location = new System.Drawing.Point(307, 499);
+            this.button1.Location = new System.Drawing.Point(186, 614);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 52);
             this.button1.TabIndex = 41;
@@ -392,9 +398,9 @@
             // 
             // farmaka
             // 
-            this.farmaka.Location = new System.Drawing.Point(276, 413);
+            this.farmaka.Location = new System.Drawing.Point(276, 439);
             this.farmaka.Name = "farmaka";
-            this.farmaka.Size = new System.Drawing.Size(174, 57);
+            this.farmaka.Size = new System.Drawing.Size(174, 95);
             this.farmaka.TabIndex = 38;
             this.farmaka.Text = "";
             // 
@@ -402,7 +408,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(307, 380);
+            this.label22.Location = new System.Drawing.Point(308, 406);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(108, 30);
             this.label22.TabIndex = 37;
@@ -412,7 +418,7 @@
             // 
             this.therapeia.Location = new System.Drawing.Point(276, 250);
             this.therapeia.Name = "therapeia";
-            this.therapeia.Size = new System.Drawing.Size(174, 110);
+            this.therapeia.Size = new System.Drawing.Size(174, 153);
             this.therapeia.TabIndex = 36;
             this.therapeia.Text = "";
             // 
@@ -430,7 +436,7 @@
             // 
             this.astheneia.Location = new System.Drawing.Point(276, 72);
             this.astheneia.Name = "astheneia";
-            this.astheneia.Size = new System.Drawing.Size(174, 110);
+            this.astheneia.Size = new System.Drawing.Size(174, 133);
             this.astheneia.TabIndex = 34;
             this.astheneia.Text = "";
             // 
@@ -438,7 +444,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(307, 30);
+            this.label20.Location = new System.Drawing.Point(308, 39);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(110, 30);
             this.label20.TabIndex = 33;
@@ -655,19 +661,67 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.patientdatagrid);
             this.panel4.Controls.Add(this.search_butt);
             this.panel4.Controls.Add(this.search_at);
             this.panel4.Controls.Add(this.label26);
             this.panel4.Controls.Add(this.label25);
             this.panel4.Location = new System.Drawing.Point(0, 344);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(341, 295);
+            this.panel4.Size = new System.Drawing.Size(341, 435);
             this.panel4.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button2.Location = new System.Drawing.Point(182, 124);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 52);
+            this.button2.TabIndex = 45;
+            this.button2.Text = "Show All";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // patientdatagrid
+            // 
+            this.patientdatagrid.AllowUserToAddRows = false;
+            this.patientdatagrid.AllowUserToDeleteRows = false;
+            this.patientdatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.patientdatagrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AMKA_C,
+            this.Fullname_c,
+            this.last_visit});
+            this.patientdatagrid.Location = new System.Drawing.Point(0, 195);
+            this.patientdatagrid.Name = "patientdatagrid";
+            this.patientdatagrid.ReadOnly = true;
+            this.patientdatagrid.RowTemplate.Height = 25;
+            this.patientdatagrid.Size = new System.Drawing.Size(335, 222);
+            this.patientdatagrid.TabIndex = 44;
+            this.patientdatagrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientdatagrid_CellContentDoubleClick);
+            // 
+            // AMKA_C
+            // 
+            this.AMKA_C.HeaderText = "AMKA";
+            this.AMKA_C.Name = "AMKA_C";
+            this.AMKA_C.ReadOnly = true;
+            this.AMKA_C.Width = 90;
+            // 
+            // Fullname_c
+            // 
+            this.Fullname_c.HeaderText = "Fullname";
+            this.Fullname_c.Name = "Fullname_c";
+            this.Fullname_c.ReadOnly = true;
+            // 
+            // last_visit
+            // 
+            this.last_visit.HeaderText = "Last Visit";
+            this.last_visit.Name = "last_visit";
+            this.last_visit.ReadOnly = true;
             // 
             // search_butt
             // 
             this.search_butt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.search_butt.Location = new System.Drawing.Point(102, 164);
+            this.search_butt.Location = new System.Drawing.Point(12, 124);
             this.search_butt.Name = "search_butt";
             this.search_butt.Size = new System.Drawing.Size(121, 52);
             this.search_butt.TabIndex = 42;
@@ -678,7 +732,7 @@
             // search_at
             // 
             this.search_at.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.search_at.Location = new System.Drawing.Point(64, 97);
+            this.search_at.Location = new System.Drawing.Point(66, 72);
             this.search_at.Name = "search_at";
             this.search_at.Size = new System.Drawing.Size(192, 33);
             this.search_at.TabIndex = 21;
@@ -707,7 +761,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 637);
+            this.ClientSize = new System.Drawing.Size(811, 774);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -723,6 +777,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientdatagrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -788,5 +843,10 @@
         private Label label26;
         private Label label25;
         private ComboBox AMKA_CHOICES;
+        private Button button2;
+        private DataGridView patientdatagrid;
+        private DataGridViewTextBoxColumn AMKA_C;
+        private DataGridViewTextBoxColumn Fullname_c;
+        private DataGridViewTextBoxColumn last_visit;
     }
 }

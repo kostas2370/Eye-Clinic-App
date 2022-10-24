@@ -51,18 +51,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.userdatagrid = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.show_all_butt = new System.Windows.Forms.Button();
-            this.searchbutt = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.usersearch = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.userid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editbut = new System.Windows.Forms.DataGridViewButtonColumn();
             this.deletebut = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label10 = new System.Windows.Forms.Label();
+            this.show_all_butt = new System.Windows.Forms.Button();
+            this.searchbutt = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.usersearch = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -213,7 +213,8 @@
             "no role",
             "admin",
             "doctor",
-            "secretary"});
+            "secretary",
+            "drug specialist"});
             this.roles.Location = new System.Drawing.Point(172, 258);
             this.roles.Name = "roles";
             this.roles.Size = new System.Drawing.Size(172, 33);
@@ -347,6 +348,52 @@
             this.userdatagrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userdatagrid_CellContentClick);
             this.userdatagrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.userdatagrid_CellFormatting);
             // 
+            // userid
+            // 
+            this.userid.HeaderText = "ID";
+            this.userid.Name = "userid";
+            this.userid.ReadOnly = true;
+            this.userid.Width = 40;
+            // 
+            // username
+            // 
+            this.username.HeaderText = "Username";
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            this.username.Width = 80;
+            // 
+            // password
+            // 
+            this.password.HeaderText = "Password";
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            this.password.Width = 80;
+            // 
+            // role
+            // 
+            this.role.HeaderText = "Role";
+            this.role.Name = "role";
+            this.role.ReadOnly = true;
+            this.role.Width = 70;
+            // 
+            // editbut
+            // 
+            this.editbut.HeaderText = "Edit";
+            this.editbut.Name = "editbut";
+            this.editbut.ReadOnly = true;
+            this.editbut.Text = "edit";
+            this.editbut.UseColumnTextForButtonValue = true;
+            this.editbut.Width = 70;
+            // 
+            // deletebut
+            // 
+            this.deletebut.HeaderText = "Delete";
+            this.deletebut.Name = "deletebut";
+            this.deletebut.ReadOnly = true;
+            this.deletebut.Text = "Delete";
+            this.deletebut.UseColumnTextForButtonValue = true;
+            this.deletebut.Width = 70;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -416,52 +463,6 @@
             this.label8.Size = new System.Drawing.Size(154, 36);
             this.label8.TabIndex = 1;
             this.label8.Text = "Search user:";
-            // 
-            // userid
-            // 
-            this.userid.HeaderText = "ID";
-            this.userid.Name = "userid";
-            this.userid.ReadOnly = true;
-            this.userid.Width = 40;
-            // 
-            // username
-            // 
-            this.username.HeaderText = "Username";
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            this.username.Width = 80;
-            // 
-            // password
-            // 
-            this.password.HeaderText = "Password";
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            this.password.Width = 80;
-            // 
-            // role
-            // 
-            this.role.HeaderText = "Role";
-            this.role.Name = "role";
-            this.role.ReadOnly = true;
-            this.role.Width = 70;
-            // 
-            // editbut
-            // 
-            this.editbut.HeaderText = "Edit";
-            this.editbut.Name = "editbut";
-            this.editbut.ReadOnly = true;
-            this.editbut.Text = "edit";
-            this.editbut.UseColumnTextForButtonValue = true;
-            this.editbut.Width = 70;
-            // 
-            // deletebut
-            // 
-            this.deletebut.HeaderText = "Delete";
-            this.deletebut.Name = "deletebut";
-            this.deletebut.ReadOnly = true;
-            this.deletebut.Text = "Delete";
-            this.deletebut.UseColumnTextForButtonValue = true;
-            this.deletebut.Width = 70;
             // 
             // UserForm
             // 

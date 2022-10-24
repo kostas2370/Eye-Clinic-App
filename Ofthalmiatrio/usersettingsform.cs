@@ -30,8 +30,13 @@ namespace Ofthalmiatrio
             {
                 movetomedicine.Visible = false;
                 movetomedicine.Enabled = false;
-                settingsbutt.Location = new System.Drawing.Point(settingsbutt.Location.X-130, settingsbutt.Location.Y);
+                settingsbutt.Location = new System.Drawing.Point(settingsbutt.Location.X - 130, settingsbutt.Location.Y);
 
+            }
+            else if (Form1.userrole == "drug specialist")
+            {
+                patientbut.Visible = false;
+                patientbut.Enabled = false;
             }
 
         }

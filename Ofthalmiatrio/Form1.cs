@@ -87,6 +87,12 @@ namespace Ofthalmiatrio
                             login.Close();
                             log.ShowDialog();
 
+                        }else if (login["role"].ToString()=="drug specialist")
+                        {
+                            MedicineForm log = new MedicineForm();
+                            login.Close();
+                            log.ShowDialog();
+                            
                         }
 
 

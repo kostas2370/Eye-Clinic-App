@@ -29,12 +29,20 @@ namespace Ofthalmiatrio
 
             }
 
-            if (Form1.userrole != "admin")
+            if (Form1.userrole != "admin" && Form1.userrole !="drug specialist")
             {
                 userbutt.Text = "Settings";
                 medicingridview.Columns.Remove("delete");
                 medicingridview.Columns.Remove("Edit");
                
+            }
+            if (Form1.userrole == "drug specialist")
+
+            {
+                userbutt.Text = "Settings";
+                patientbut.Visible = false;
+                patientbut.Enabled = false;
+                
             }
         }   
 

@@ -68,7 +68,8 @@
             "no role",
             "admin",
             "doctor",
-            "secretary"});
+            "secretary",
+            "drug specialist"});
             this.roles.Location = new System.Drawing.Point(172, 258);
             this.roles.Name = "roles";
             this.roles.Size = new System.Drawing.Size(172, 33);
