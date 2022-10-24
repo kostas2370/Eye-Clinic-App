@@ -40,6 +40,9 @@
     <Compile Update="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="usersettingsform.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="visitform.cs">
       <SubType>Form</SubType>
     </Compile>

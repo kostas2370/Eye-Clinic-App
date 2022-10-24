@@ -6,12 +6,14 @@ namespace Ofthalmiatrio
     {
         public static string usernamelog;
         public static string userrole;
-
+        public static string userid;
         public Form1()
         {
            
            InitializeComponent();
-
+            usernamelog = null;
+            userrole = null;
+            userid = null;
             setstyle.setStyle(this);
             /*
               if the db doesnt exists it creates the db connection
@@ -58,6 +60,7 @@ namespace Ofthalmiatrio
                     {
                         usernamelog = login["username"].ToString();
                         userrole= login["role"].ToString();
+                        userid = login["id"].ToString();
                         MessageBox.Show($"Welcome {usernamelog}");
                         this.Hide();
                        

@@ -104,7 +104,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(853, 61);
+            this.panel1.Size = new System.Drawing.Size(812, 61);
             this.panel1.TabIndex = 3;
             // 
             // button1
@@ -121,6 +121,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Settings";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button4
             // 
@@ -136,6 +137,7 @@
             this.button4.TabIndex = 5;
             this.button4.Text = "Log Out";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // movetomedicine
             // 
@@ -151,6 +153,7 @@
             this.movetomedicine.TabIndex = 4;
             this.movetomedicine.Text = "Medicines";
             this.movetomedicine.UseVisualStyleBackColor = false;
+            this.movetomedicine.Click += new System.EventHandler(this.movetomedicine_Click);
             // 
             // patientbut
             // 

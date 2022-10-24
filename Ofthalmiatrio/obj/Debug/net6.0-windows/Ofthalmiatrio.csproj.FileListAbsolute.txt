@@ -105,3 +105,4 @@ C:\Users\mr_Dmn\source\repos\Ofthalmiatrio\ofthalmos\Ofthalmiatrio\obj\Debug\net
 C:\Users\mr_Dmn\source\repos\Ofthalmiatrio\ofthalmos\Ofthalmiatrio\obj\Debug\net6.0-windows\Ofthalmiatrio.UserForm.resources
 C:\Users\mr_Dmn\source\repos\Ofthalmiatrio\ofthalmos\Ofthalmiatrio\obj\Debug\net6.0-windows\Ofthalmiatrio.edituserform.resources
 C:\Users\mr_Dmn\source\repos\Ofthalmiatrio\ofthalmos\Ofthalmiatrio\obj\Debug\net6.0-windows\Ofthalmiatrio.secreteriat.resources
+C:\Users\mr_Dmn\source\repos\Ofthalmiatrio\ofthalmos\Ofthalmiatrio\obj\Debug\net6.0-windows\Ofthalmiatrio.usersettingsform.resources

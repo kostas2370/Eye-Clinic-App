@@ -68,7 +68,7 @@ namespace Ofthalmiatrio
 
         private void button2_Click(object sender, EventArgs e)
         {
-            bool j;
+            bool j=false;
             if (AMKA_CHOICES.Text == "")
             {
                 MessageBox.Show("You must insert a valid AMKA");
@@ -174,9 +174,9 @@ namespace Ofthalmiatrio
         {
             foreach (DataGridViewRow Row in patientdatagrid.Rows)
             {
-                
-                 Row.Visible = true;
-                
+
+                Row.Visible = true;
+
 
             }
         }
@@ -189,12 +189,39 @@ namespace Ofthalmiatrio
                 string AMKA = patientdatagrid.Rows[e.RowIndex].Cells["AMKA_C"].FormattedValue.ToString();
                 var info = DatabaseDev.getAstheneis(AMKA);
                 patient form = new patient(info);
-                form.ShowDialog();  
+                form.ShowDialog();
 
-            }catch (Exception x)
+            }
+            catch (Exception x)
             {
 
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            Form1 form = new Form1();
+            form.ShowDialog();
+            this.Close();
+
+        }
+
+        private void movetomedicine_Click(object sender, EventArgs e)
+        {
+            MedicineForm form = new MedicineForm();
+            this.Hide();
+            form.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            usersettingsform form = new usersettingsform();
+            this.Hide();
+            form.ShowDialog();
+            this.Close();
         }
     }
 }

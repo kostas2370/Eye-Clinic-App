@@ -28,6 +28,14 @@ namespace Ofthalmiatrio
                 meds.Close();
 
             }
+
+            if (Form1.userrole != "admin")
+            {
+                userbutt.Text = "Settings";
+                medicingridview.Columns.Remove("delete");
+                medicingridview.Columns.Remove("Edit");
+               
+            }
         }   
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -38,10 +46,34 @@ namespace Ofthalmiatrio
         private void patientbut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            patients_admin form = new patients_admin();
-            form.ShowDialog();
-            form.Close();
+            if (Form1.userrole == "admin")
+            {
+                patients_admin form = new patients_admin();
+
+                form.ShowDialog();
+                this.Close();
+
+
+            }
+            else  if (Form1.userrole == "doctor")
+            {
+                giatros form = new giatros();
+
+                form.ShowDialog();
+                this.Close();
+            }
+            else if (Form1.userrole == "secretary")
+            {
+                secreteriat form = new secreteriat();
+                form.ShowDialog();
+                this.Close();
+
+            }
+
         }
+
+        
+         
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -198,9 +230,23 @@ namespace Ofthalmiatrio
 
         private void button3_Click(object sender, EventArgs e)
         {
-            UserForm form = new UserForm();
-            this.Hide();
-            form.ShowDialog();
+            
+            if (Form1.userrole == "admin")
+            {
+                this.Hide();
+                UserForm form = new UserForm();
+                form.ShowDialog();
+            }
+            else
+            {
+                usersettingsform form = new usersettingsform();
+                this.Hide();
+                form.ShowDialog();
+                this.Close();
+            }
+            
+           
+            
             this.Close();
         }
     }

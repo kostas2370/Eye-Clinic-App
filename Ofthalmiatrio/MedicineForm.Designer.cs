@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.userbutt = new System.Windows.Forms.Button();
             this.movetomedicine = new System.Windows.Forms.Button();
             this.patientbut = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.userbutt);
             this.panel1.Controls.Add(this.movetomedicine);
             this.panel1.Controls.Add(this.patientbut);
             this.panel1.Controls.Add(this.label2);
@@ -107,21 +107,21 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // userbutt
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(605, -3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 61);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Users";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.userbutt.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userbutt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.userbutt.FlatAppearance.BorderSize = 0;
+            this.userbutt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userbutt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.userbutt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.userbutt.Location = new System.Drawing.Point(607, 0);
+            this.userbutt.Name = "userbutt";
+            this.userbutt.Size = new System.Drawing.Size(126, 61);
+            this.userbutt.TabIndex = 4;
+            this.userbutt.Text = "Users";
+            this.userbutt.UseVisualStyleBackColor = false;
+            this.userbutt.Click += new System.EventHandler(this.button3_Click);
             // 
             // movetomedicine
             // 
@@ -538,7 +538,7 @@
 
         private Panel panel1;
         private Button button4;
-        private Button button3;
+        private Button userbutt;
         private Button movetomedicine;
         private Button patientbut;
         private Label label2;
