@@ -5,7 +5,8 @@ namespace Ofthalmiatrio
     public partial class Form1 : Form
     {
         public static string usernamelog;
-       
+        public static string userrole;
+
         public Form1()
         {
            
@@ -56,6 +57,7 @@ namespace Ofthalmiatrio
                      login.Read();
                     {
                         usernamelog = login["username"].ToString();
+                        userrole= login["role"].ToString();
                         MessageBox.Show($"Welcome {usernamelog}");
                         this.Hide();
                        

@@ -29,6 +29,12 @@ namespace Ofthalmiatrio
 
             patient_info.Read();
             
+            if (Form1.userrole == "doctor" )
+            {
+                edit_but.Visible = false;
+                edit_but.Enabled = false;
+            }
+
             AMKA.Text = patient_info["AMKA"].ToString();
             onomatep.Text = patient_info["OnomaTeponimo"].ToString();
             asfaleia.Text = patient_info["Asfaleia"].ToString();

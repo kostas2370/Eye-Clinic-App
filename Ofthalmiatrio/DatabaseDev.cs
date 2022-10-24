@@ -127,7 +127,13 @@ namespace Ofthalmiatrio
         public static SQLiteDataReader getAstheneis(String input, string mode = "AMKA")
         {
             sqlite_cmd = conn.CreateCommand();
-            string getPats = $"SELECT * FROM astheneis WHERE {mode} = '{input}'";
+            string getPats= "SELECT * FROM astheneis";
+            if (mode !="all")
+            {
+                 getPats = $"SELECT * FROM astheneis WHERE {mode} = '{input}'";
+
+            }
+           
             sqlite_cmd.CommandText = getPats;
             sqlite_cmd.CommandType = CommandType.Text;
             SQLiteDataReader myReader = sqlite_cmd.ExecuteReader();
