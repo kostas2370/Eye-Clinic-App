@@ -277,5 +277,43 @@ namespace Ofthalmiatrio
 
             }
         }
+
+        private void patientdatagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string AMKA = patientdatagrid.Rows[e.RowIndex].Cells["AMKA_C"].FormattedValue.ToString();
+
+                if (patientdatagrid.Columns[e.ColumnIndex].Name == "delete_c")
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this patient ?", "Are you sure ?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+
+                        bool j = DatabaseDev.deleteAstheneis(AMKA);
+                        if (j)
+                        {
+                            MessageBox.Show("Deleted succesfully");
+                            patientdatagrid.Rows[e.RowIndex].Visible = false;
+                            AMKA_CHOICES.Items.Remove(AMKA);
+                        }
+                    }
+                }
+                else if (patientdatagrid.Columns[e.ColumnIndex].Name == "edit_c")
+                {
+                    var asthen = DatabaseDev.getAstheneis(AMKA);
+                    asthen.Read();
+                    editpatient form = new editpatient(asthen["AMKA"].ToString(), asthen["OnomaTeponimo"].ToString(), asthen["asfaleia"].ToString());
+                    form.ShowDialog();
+                    asthen = DatabaseDev.getAstheneis(AMKA);
+                    asthen.Read();
+                    patientdatagrid.Rows[e.RowIndex].Cells[1].Value = asthen["OnomaTeponimo"].ToString();
+
+                }
+            }catch (Exception x)
+            {
+
+            }
+        }
     }
 }

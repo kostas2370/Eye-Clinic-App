@@ -110,7 +110,7 @@ namespace Ofthalmiatrio
         }
 
 
-
+        //get patient amkas
         public static SQLiteDataReader getAMKAS()
         {
             sqlite_cmd = conn.CreateCommand();
@@ -123,7 +123,7 @@ namespace Ofthalmiatrio
 
         }
 
-
+        //get astheneis
         public static SQLiteDataReader getAstheneis(String input, string mode = "AMKA")
         {
             sqlite_cmd = conn.CreateCommand();
@@ -141,7 +141,7 @@ namespace Ofthalmiatrio
 
         }
 
-
+        //update astheneis
         public static bool updateAstheneis(string AMKA, string OnomaTeponymo, string asfaleia)
         {
             sqlite_cmd = conn.CreateCommand();
@@ -153,7 +153,22 @@ namespace Ofthalmiatrio
 
         }
 
+        //delete astheneis
+        public static bool deleteAstheneis(string AMKA)
+        {
+            sqlite_cmd = conn.CreateCommand();
+            string deleteAstheneis = $"DELETE from astheneis WHERE AMKA='{AMKA}'";
+            sqlite_cmd.CommandText = deleteAstheneis;
+            int J = sqlite_cmd.ExecuteNonQuery();
+            if (J > 0)
+            {
+                deleteVisit(null, AMKA);
+                return true;
+            }
 
+
+            return false;
+        }
 
         //____________________________________VISITS____________________________________________
 
@@ -223,18 +238,30 @@ namespace Ofthalmiatrio
         public static bool deleteVisit(string id, string AMKA)
         {
             sqlite_cmd = conn.CreateCommand();
-            string deleteRantevou = $"DELETE FROM rantevou WHERE id = {id}";
-
-            string update_astheneis = $"UPDATE astheneis SET Episkepseis = Episkepseis-1  WHERE AMKA='{AMKA}'";
-
-            sqlite_cmd.CommandText = deleteRantevou;
-            int j = sqlite_cmd.ExecuteNonQuery();
-            if (j == 1)
+            if (!(id is null))
             {
-                sqlite_cmd.CommandText = update_astheneis;
-                sqlite_cmd.ExecuteNonQuery();
-                return true;
+                string deleteRantevou = $"DELETE FROM rantevou WHERE id = {id}";
+                string update_astheneis = $"UPDATE astheneis SET Episkepseis = Episkepseis-1  WHERE AMKA='{AMKA}'";
 
+                sqlite_cmd.CommandText = deleteRantevou;
+                int j = sqlite_cmd.ExecuteNonQuery();
+                
+                if (j == 1)
+                {
+                    sqlite_cmd.CommandText = update_astheneis;
+                    sqlite_cmd.ExecuteNonQuery();
+                    return true;
+                }
+
+
+
+            }
+            else
+            {
+                string deleteRantevou = $"DELETE FROM rantevou WHERE AMKA='{AMKA}'";
+                sqlite_cmd.CommandText = deleteRantevou;
+                int j = sqlite_cmd.ExecuteNonQuery();
+                return true;
             }
 
             return false;

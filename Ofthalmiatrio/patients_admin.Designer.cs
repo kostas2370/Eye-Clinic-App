@@ -86,13 +86,15 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.patientdatagrid = new System.Windows.Forms.DataGridView();
-            this.AMKA_C = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fullname_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_visit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.search_butt = new System.Windows.Forms.Button();
             this.search_at = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.AMKA_C = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fullname_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_visit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit_c = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete_c = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -690,33 +692,17 @@
             this.patientdatagrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AMKA_C,
             this.Fullname_c,
-            this.last_visit});
+            this.last_visit,
+            this.edit_c,
+            this.delete_c});
             this.patientdatagrid.Location = new System.Drawing.Point(0, 195);
             this.patientdatagrid.Name = "patientdatagrid";
             this.patientdatagrid.ReadOnly = true;
             this.patientdatagrid.RowTemplate.Height = 25;
             this.patientdatagrid.Size = new System.Drawing.Size(335, 222);
             this.patientdatagrid.TabIndex = 44;
+            this.patientdatagrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientdatagrid_CellContentClick);
             this.patientdatagrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientdatagrid_CellContentDoubleClick);
-            // 
-            // AMKA_C
-            // 
-            this.AMKA_C.HeaderText = "AMKA";
-            this.AMKA_C.Name = "AMKA_C";
-            this.AMKA_C.ReadOnly = true;
-            this.AMKA_C.Width = 90;
-            // 
-            // Fullname_c
-            // 
-            this.Fullname_c.HeaderText = "Fullname";
-            this.Fullname_c.Name = "Fullname_c";
-            this.Fullname_c.ReadOnly = true;
-            // 
-            // last_visit
-            // 
-            this.last_visit.HeaderText = "Last Visit";
-            this.last_visit.Name = "last_visit";
-            this.last_visit.ReadOnly = true;
             // 
             // search_butt
             // 
@@ -756,6 +742,45 @@
             this.label25.Size = new System.Drawing.Size(156, 30);
             this.label25.TabIndex = 7;
             this.label25.Text = "Search Patient :";
+            // 
+            // AMKA_C
+            // 
+            this.AMKA_C.HeaderText = "AMKA";
+            this.AMKA_C.Name = "AMKA_C";
+            this.AMKA_C.ReadOnly = true;
+            this.AMKA_C.Width = 90;
+            // 
+            // Fullname_c
+            // 
+            this.Fullname_c.HeaderText = "Fullname";
+            this.Fullname_c.Name = "Fullname_c";
+            this.Fullname_c.ReadOnly = true;
+            // 
+            // last_visit
+            // 
+            this.last_visit.HeaderText = "Last Visit";
+            this.last_visit.Name = "last_visit";
+            this.last_visit.ReadOnly = true;
+            // 
+            // edit_c
+            // 
+            this.edit_c.HeaderText = "Edit";
+            this.edit_c.Name = "edit_c";
+            this.edit_c.ReadOnly = true;
+            this.edit_c.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.edit_c.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.edit_c.Text = "Edit";
+            this.edit_c.UseColumnTextForButtonValue = true;
+            this.edit_c.Width = 70;
+            // 
+            // delete_c
+            // 
+            this.delete_c.HeaderText = "Delete";
+            this.delete_c.Name = "delete_c";
+            this.delete_c.ReadOnly = true;
+            this.delete_c.Text = "Delete";
+            this.delete_c.UseColumnTextForButtonValue = true;
+            this.delete_c.Width = 70;
             // 
             // patients_admin
             // 
@@ -848,5 +873,7 @@
         private DataGridViewTextBoxColumn AMKA_C;
         private DataGridViewTextBoxColumn Fullname_c;
         private DataGridViewTextBoxColumn last_visit;
+        private DataGridViewButtonColumn edit_c;
+        private DataGridViewButtonColumn delete_c;
     }
 }
