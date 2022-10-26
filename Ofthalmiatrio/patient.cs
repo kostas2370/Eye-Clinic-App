@@ -52,7 +52,7 @@ namespace Ofthalmiatrio
                 md.Text = last_data["myopia_dexio"].ToString();
                 pa.Text = last_data["presviopia_aristero"].ToString();
                 pd.Text = last_data["presviopia_dexio"].ToString();
-                ya.Text = last_data["ypermatropia_dexio"].ToString();
+                ya.Text = last_data["ypermatropia_aristero"].ToString();
                 yd.Text = last_data["ypermatropia_dexio"].ToString();
                 aa.Text = last_data["astigmatismos_aristero"].ToString();
                 ad.Text = last_data["astigmatismos_dexio"].ToString();
@@ -69,6 +69,70 @@ namespace Ofthalmiatrio
                  rantevou = DatabaseDev.getVisit(AMKA.Text);
                 last_data.Close();
                 int x = 0;
+
+                string SPH_A="-";
+                string SPH_D="-";
+                string CYL_A="-";
+                string CYL_D="-";
+                string AXES_A = "-";
+                string AXES_D="-";
+                string ADD_A = "-";
+                string ADD_D = "-";
+                
+                //SPH_A
+                if (Double.Parse(ma.Text)>0)
+                {
+                    SPH_A= $"-{ma.Text}";
+                }else if(Double.Parse(ya.Text) > 0)
+                {
+                    SPH_A = $"+{ya.Text}";
+                }
+                else
+                {
+                    SPH_A ="Plano";
+                }
+
+                //SPH_D
+                if (Double.Parse(md.Text) > 0)
+                {
+                    SPH_D = $"-{md.Text}";
+                }
+                else if (Double.Parse(yd.Text) > 0)
+                {
+                    SPH_D = $"+{yd.Text}";
+                }
+                else
+                {
+                    SPH_D = "Plano";
+                }
+
+                //CYL_A
+                if (Double.Parse(aa.Text) > 0)
+                {
+                    CYL_A = $"{SPH_A[0]}{aa.Text}";
+                    AXES_A = "180";
+                }
+            
+                //CYL_D
+                if (Double.Parse(ad.Text) > 0)
+                {
+                    CYL_D = $"{SPH_D[0]}{ad.Text}";
+                    AXES_D = "10";
+                }
+
+                //ADD_A
+                if (Double.Parse(pa.Text) > 0)
+                {
+                    ADD_A = $"+{pa.Text}";
+                }
+                //ADD_D
+                if (Double.Parse(pd.Text) > 0)
+                {
+                    ADD_D = $"+{pd.Text}";
+                }
+
+                gyalia_data_grid.Rows.Add("Α.Ο",SPH_A,CYL_A,AXES_A,ADD_A);
+                gyalia_data_grid.Rows.Add("Δ.Ο",SPH_D,CYL_D,AXES_D,ADD_D);
                 while (rantevou.Read())
                 {
                     if(x== 0)

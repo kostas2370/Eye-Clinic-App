@@ -39,6 +39,7 @@
             System.Windows.Forms.Label label20;
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
+            System.Windows.Forms.Label label24;
             this.lastv = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -67,6 +68,12 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gyalia_data_grid = new System.Windows.Forms.DataGridView();
+            this.Eye_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sphere_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cyl_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axis_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.print_butt = new System.Windows.Forms.Button();
             this.diarkeia = new System.Windows.Forms.Label();
             this.farmaka = new System.Windows.Forms.RichTextBox();
@@ -114,10 +121,12 @@
             label20 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
             label23 = new System.Windows.Forms.Label();
+            label24 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rantevougrid)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gyalia_data_grid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -227,11 +236,21 @@
             // 
             label23.AutoSize = true;
             label23.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label23.Location = new System.Drawing.Point(426, 250);
+            label23.Location = new System.Drawing.Point(262, 187);
             label23.Name = "label23";
             label23.Size = new System.Drawing.Size(189, 25);
             label23.TabIndex = 43;
             label23.Text = "Διάρκεια θεραπείας :";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label24.Location = new System.Drawing.Point(262, 212);
+            label24.Name = "label24";
+            label24.Size = new System.Drawing.Size(74, 25);
+            label24.TabIndex = 46;
+            label24.Text = "Γυαλιά:";
             // 
             // lastv
             // 
@@ -269,7 +288,7 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(438, 419);
+            this.button3.Location = new System.Drawing.Point(432, 410);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(143, 60);
             this.button3.TabIndex = 14;
@@ -483,6 +502,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel2.Controls.Add(this.gyalia_data_grid);
+            this.panel2.Controls.Add(label24);
             this.panel2.Controls.Add(this.print_butt);
             this.panel2.Controls.Add(this.diarkeia);
             this.panel2.Controls.Add(label23);
@@ -533,14 +554,67 @@
             this.panel2.Controls.Add(label1);
             this.panel2.Location = new System.Drawing.Point(13, 23);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(988, 300);
+            this.panel2.Size = new System.Drawing.Size(988, 307);
             this.panel2.TabIndex = 0;
+            // 
+            // gyalia_data_grid
+            // 
+            this.gyalia_data_grid.AllowUserToAddRows = false;
+            this.gyalia_data_grid.AllowUserToDeleteRows = false;
+            this.gyalia_data_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gyalia_data_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eye_c,
+            this.sphere_c,
+            this.cyl_c,
+            this.axis_c,
+            this.add_c});
+            this.gyalia_data_grid.Location = new System.Drawing.Point(342, 215);
+            this.gyalia_data_grid.Name = "gyalia_data_grid";
+            this.gyalia_data_grid.ReadOnly = true;
+            this.gyalia_data_grid.RowTemplate.Height = 25;
+            this.gyalia_data_grid.Size = new System.Drawing.Size(254, 78);
+            this.gyalia_data_grid.TabIndex = 47;
+            // 
+            // Eye_c
+            // 
+            this.Eye_c.HeaderText = "Eye";
+            this.Eye_c.Name = "Eye_c";
+            this.Eye_c.ReadOnly = true;
+            this.Eye_c.Width = 40;
+            // 
+            // sphere_c
+            // 
+            this.sphere_c.HeaderText = "Sphere";
+            this.sphere_c.Name = "sphere_c";
+            this.sphere_c.ReadOnly = true;
+            this.sphere_c.Width = 50;
+            // 
+            // cyl_c
+            // 
+            this.cyl_c.HeaderText = "CYL";
+            this.cyl_c.Name = "cyl_c";
+            this.cyl_c.ReadOnly = true;
+            this.cyl_c.Width = 40;
+            // 
+            // axis_c
+            // 
+            this.axis_c.HeaderText = "Axis";
+            this.axis_c.Name = "axis_c";
+            this.axis_c.ReadOnly = true;
+            this.axis_c.Width = 40;
+            // 
+            // add_c
+            // 
+            this.add_c.HeaderText = "Add";
+            this.add_c.Name = "add_c";
+            this.add_c.ReadOnly = true;
+            this.add_c.Width = 40;
             // 
             // print_butt
             // 
             this.print_butt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.print_butt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.print_butt.Location = new System.Drawing.Point(139, 222);
+            this.print_butt.Location = new System.Drawing.Point(16, 238);
             this.print_butt.Name = "print_butt";
             this.print_butt.Size = new System.Drawing.Size(117, 46);
             this.print_butt.TabIndex = 45;
@@ -552,7 +626,7 @@
             // 
             this.diarkeia.AutoSize = true;
             this.diarkeia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.diarkeia.Location = new System.Drawing.Point(621, 254);
+            this.diarkeia.Location = new System.Drawing.Point(474, 190);
             this.diarkeia.Name = "diarkeia";
             this.diarkeia.Size = new System.Drawing.Size(61, 21);
             this.diarkeia.TabIndex = 44;
@@ -667,7 +741,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(16, 222);
+            this.button1.Location = new System.Drawing.Point(16, 182);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 46);
             this.button1.TabIndex = 12;
@@ -679,7 +753,7 @@
             // 
             this.edit_but.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.edit_but.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.edit_but.Location = new System.Drawing.Point(262, 222);
+            this.edit_but.Location = new System.Drawing.Point(139, 238);
             this.edit_but.Name = "edit_but";
             this.edit_but.Size = new System.Drawing.Size(117, 46);
             this.edit_but.TabIndex = 11;
@@ -727,7 +801,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(490, 162);
+            this.label17.Location = new System.Drawing.Point(492, 158);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(60, 25);
             this.label17.TabIndex = 21;
@@ -737,7 +811,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(381, 162);
+            this.label16.Location = new System.Drawing.Point(386, 158);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(60, 25);
             this.label16.TabIndex = 20;
@@ -907,6 +981,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rantevougrid)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gyalia_data_grid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -978,5 +1053,11 @@
         private DataGridViewButtonColumn Print;
         private DataGridViewButtonColumn Delete;
         private DataGridViewButtonColumn Edit;
+        private DataGridView gyalia_data_grid;
+        private DataGridViewTextBoxColumn Eye_c;
+        private DataGridViewTextBoxColumn sphere_c;
+        private DataGridViewTextBoxColumn cyl_c;
+        private DataGridViewTextBoxColumn axis_c;
+        private DataGridViewTextBoxColumn add_c;
     }
 }
