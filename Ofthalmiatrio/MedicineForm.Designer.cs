@@ -105,7 +105,7 @@
             this.button4.TabIndex = 5;
             this.button4.Text = "Log Out";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.logout_Click);
             // 
             // userbutt
             // 
@@ -121,7 +121,7 @@
             this.userbutt.TabIndex = 4;
             this.userbutt.Text = "Users";
             this.userbutt.UseVisualStyleBackColor = false;
-            this.userbutt.Click += new System.EventHandler(this.button3_Click);
+            this.userbutt.Click += new System.EventHandler(this.settings_Click);
             // 
             // movetomedicine
             // 
@@ -361,7 +361,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.search_Click);
             // 
             // label9
             // 

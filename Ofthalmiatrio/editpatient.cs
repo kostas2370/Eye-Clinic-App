@@ -25,7 +25,7 @@ namespace Ofthalmiatrio
             amka = AMKA;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void submit_Click(object sender, EventArgs e)
         {
           
             if (fullname.Text == "")

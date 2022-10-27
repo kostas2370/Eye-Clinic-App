@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OxyPlot.Axes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,6 +41,8 @@ namespace Ofthalmiatrio
                 ad.Text = rantevou["astigmatismos_dexio"].ToString();
                 pia.Text = rantevou["piesh_aristero"].ToString();
                 pid.Text = rantevou["piesh_dexio"].ToString();
+                axa.Text = rantevou["axonas_aristera"].ToString();
+                axd.Text = rantevou["axonas_dexia"].ToString();
                 apotelesma.Text = rantevou["Apotelesmata"].ToString();
                 astheneia.Text = rantevou["asthenia"].ToString();
                 therapeia.Text = rantevou["therapia"].ToString();

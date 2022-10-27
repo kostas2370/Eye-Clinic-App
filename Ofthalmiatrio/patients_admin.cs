@@ -42,6 +42,9 @@ namespace Ofthalmiatrio
             astigmatismos_dexio.Text = "0";
             piesh_aristero.Text = "0";
             piesh_dexio.Text = "0";
+            axonas_aristera.Text = "0";
+            axonas_dexia.Text = "0";
+
             diarkeia_therapeias.Text = "30";
             kostos.Text = "20";
 
@@ -66,11 +69,6 @@ namespace Ofthalmiatrio
 
 
 
-
-        private void amka_visit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
         /*
@@ -123,16 +121,18 @@ namespace Ofthalmiatrio
             if (last_rantevou.HasRows)
             {
                 last_rantevou.Read();
-                myopia_aristero.Text = last_rantevou["myopia_aristero"].ToString();
-                myopia_dexio.Text = last_rantevou["myopia_dexio"].ToString();
-                presviopia_aristero.Text = last_rantevou["presviopia_aristero"].ToString();
-                presviopia_dexio.Text = last_rantevou["presviopia_dexio"].ToString();
-                ypermetropia_aristero.Text = last_rantevou["ypermatropia_aristero"].ToString();
-                ypermetropia_dexio.Text = last_rantevou["ypermatropia_dexio"].ToString();
-                astigmatismos_aristero.Text = last_rantevou["astigmatismos_aristero"].ToString(); ;
-                astigmatismos_dexio.Text = last_rantevou["astigmatismos_dexio"].ToString();
-                piesh_aristero.Text = last_rantevou["piesh_aristero"].ToString();
-                piesh_dexio.Text = last_rantevou["piesh_dexio"].ToString();
+                myopia_aristero.Text = last_rantevou["myopia_aristero"].ToString().Replace(',','.');
+                myopia_dexio.Text = last_rantevou["myopia_dexio"].ToString().Replace(',', '.');
+                presviopia_aristero.Text = last_rantevou["presviopia_aristero"].ToString().Replace(',', '.');
+                presviopia_dexio.Text = last_rantevou["presviopia_dexio"].ToString().Replace(',', '.');
+                ypermetropia_aristero.Text = last_rantevou["ypermatropia_aristero"].ToString().Replace(',', '.');
+                ypermetropia_dexio.Text = last_rantevou["ypermatropia_dexio"].ToString().Replace(',', '.');
+                astigmatismos_aristero.Text = last_rantevou["astigmatismos_aristero"].ToString().Replace(',', '.') ;
+                astigmatismos_dexio.Text = last_rantevou["astigmatismos_dexio"].ToString().Replace(',', '.');
+                axonas_aristera.Text = last_rantevou["axonas_aristera"].ToString();
+                axonas_dexia.Text = last_rantevou["axonas_dexia"].ToString();
+                piesh_aristero.Text = last_rantevou["piesh_aristero"].ToString().Replace(',', '.');
+                piesh_dexio.Text = last_rantevou["piesh_dexio"].ToString().Replace(',', '.');
                 astheneia.Text = last_rantevou["asthenia"].ToString();
                 therapeia.Text = last_rantevou["therapia"].ToString();
                 farmaka.Text = last_rantevou["farmaka"].ToString();
@@ -162,7 +162,7 @@ namespace Ofthalmiatrio
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void add_visit_Click(object sender, EventArgs e)
         {
             bool j;
             if (AMKA_CHOICES.Text == "")
@@ -173,29 +173,55 @@ namespace Ofthalmiatrio
             {
                 MessageBox.Show("You must insert a valid cost");
             }
-            try
+            else if (myopia_aristero.Text != "0" & ypermetropia_aristero.Text != "0")
             {
 
+                MessageBox.Show("You cant have values more than 0 in both fields (myopia aristero and ypermetropia aristero) ");
+            }
+            else if (myopia_dexio.Text != "0" & ypermetropia_dexio.Text != "0")
+            {
 
-                j = DatabaseDev.addVisit(AMKA_CHOICES.Text, visit_date.Value.ToString("yyyy-MM-dd"), myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia_therapeias.Text, kostos.Text);
-                foreach (DataGridViewRow Row in patientdatagrid.Rows)
+                MessageBox.Show("You cant have values more than 0 in both fields (myopia dexio and ypermetropia dexio) ");
+            }
+            else if (astigmatismos_aristero.Text != "0" & axonas_aristera.Text =="0")
+            {
+                MessageBox.Show("You must add axis value when u have astigmatismos ");
+
+            }
+            else if (astigmatismos_dexio.Text != "0" & axonas_dexia.Text == "0")
+            {
+                MessageBox.Show("You must add axis value when u have astigmatismos ");
+
+            }
+
+
+
+            else
+            {
+                try
                 {
-                    if (Row.Cells["AMKA_C"].ToString() == AMKA_CHOICES.Text)
+
+
+                    j = DatabaseDev.addVisit(AMKA_CHOICES.Text, visit_date.Value.ToString("yyyy-MM-dd"), myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text, axonas_aristera.Text, axonas_dexia.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia_therapeias.Text, kostos.Text);
+                    foreach (DataGridViewRow Row in patientdatagrid.Rows)
                     {
-                        Row.Cells["last_visit"].Value = visit_date.Value.ToString("yyyy-MM-dd");
+                        if (Row.Cells["AMKA_C"].ToString() == AMKA_CHOICES.Text)
+                        {
+                            Row.Cells["last_visit"].Value = visit_date.Value.ToString("yyyy-MM-dd");
+                        }
                     }
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Invalid data");
+                    j = false;
                 }
 
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Invalid data");
-                j = false;
-            }
-
-            if (j)
-            {
-                MessageBox.Show("visit added sucesfully");
+                if (j)
+                {
+                    MessageBox.Show("visit added sucesfully");
+                }
             }
         }
 
@@ -240,7 +266,7 @@ namespace Ofthalmiatrio
             form.Close();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void log_out_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 form = new Form1();
@@ -248,12 +274,8 @@ namespace Ofthalmiatrio
             this.Close();
         }
 
-        private void visit_date_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+   
+        private void user_Click(object sender, EventArgs e)
         {
             UserForm form = new UserForm();
             this.Hide();

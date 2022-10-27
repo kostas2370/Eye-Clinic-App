@@ -156,15 +156,5 @@ namespace Ofthalmiatrio
             this.astigmatismos.Model =AstigmatismosModel;
             this.piesh.Model =PieshModel;
         }
-
-        private void piesh_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void astigmatismos_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

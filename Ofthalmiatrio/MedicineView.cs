@@ -32,11 +32,6 @@ namespace Ofthalmiatrio
 
         }
 
-        private void MedicineView_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Savebutt_Click(object sender, EventArgs e)
         {
             string path_name;

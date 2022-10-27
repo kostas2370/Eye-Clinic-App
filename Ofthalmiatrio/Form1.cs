@@ -37,11 +37,6 @@ namespace Ofthalmiatrio
            
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void login_butt_Click(object sender, EventArgs e)
         {
             if (username.Text == "")

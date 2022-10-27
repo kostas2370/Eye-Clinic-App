@@ -38,6 +38,10 @@
             System.Windows.Forms.Label onomateponymo;
             System.Windows.Forms.Label label1;
             this.panel2 = new System.Windows.Forms.Panel();
+            this.axd = new System.Windows.Forms.Label();
+            this.axa = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.printbutt = new System.Windows.Forms.Button();
             this.Savebutt = new System.Windows.Forms.Button();
             this.diarkeia = new System.Windows.Forms.Label();
@@ -178,6 +182,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel2.Controls.Add(this.axd);
+            this.panel2.Controls.Add(this.axa);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.printbutt);
             this.panel2.Controls.Add(this.Savebutt);
             this.panel2.Controls.Add(this.diarkeia);
@@ -224,6 +232,44 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(988, 635);
             this.panel2.TabIndex = 1;
+            // 
+            // axd
+            // 
+            this.axd.AutoSize = true;
+            this.axd.Location = new System.Drawing.Point(220, 452);
+            this.axd.Name = "axd";
+            this.axd.Size = new System.Drawing.Size(26, 15);
+            this.axd.TabIndex = 50;
+            this.axd.Text = "axd";
+            // 
+            // axa
+            // 
+            this.axa.AutoSize = true;
+            this.axa.Location = new System.Drawing.Point(102, 452);
+            this.axa.Name = "axa";
+            this.axa.Size = new System.Drawing.Size(25, 15);
+            this.axa.TabIndex = 49;
+            this.axa.Text = "axa";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(159, 446);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 25);
+            this.label4.TabIndex = 48;
+            this.label4.Text = "ΑX.Δ:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(41, 444);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 25);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "ΑX.Α. :";
             // 
             // printbutt
             // 
@@ -320,7 +366,7 @@
             // 
             this.pia.AutoSize = true;
             this.pia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pia.Location = new System.Drawing.Point(102, 446);
+            this.pia.Location = new System.Drawing.Point(104, 471);
             this.pia.Name = "pia";
             this.pia.Size = new System.Drawing.Size(0, 21);
             this.pia.TabIndex = 31;
@@ -329,7 +375,7 @@
             // 
             this.pid.AutoSize = true;
             this.pid.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pid.Location = new System.Drawing.Point(212, 449);
+            this.pid.Location = new System.Drawing.Point(214, 474);
             this.pid.Name = "pid";
             this.pid.Size = new System.Drawing.Size(0, 21);
             this.pid.TabIndex = 30;
@@ -410,7 +456,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(154, 446);
+            this.label17.Location = new System.Drawing.Point(156, 471);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(60, 25);
             this.label17.TabIndex = 21;
@@ -420,7 +466,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(45, 446);
+            this.label16.Location = new System.Drawing.Point(47, 471);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(60, 25);
             this.label16.TabIndex = 20;
@@ -606,5 +652,9 @@
         private Label AMKA;
         private Button printbutt;
         private Button Savebutt;
+        private Label axd;
+        private Label axa;
+        private Label label4;
+        private Label label3;
     }
 }

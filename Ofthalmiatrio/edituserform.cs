@@ -27,7 +27,7 @@ namespace Ofthalmiatrio
             roles.Text = data["role"].ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void update_Click(object sender, EventArgs e)
         {
             if (usernametext.Text == "")
             {

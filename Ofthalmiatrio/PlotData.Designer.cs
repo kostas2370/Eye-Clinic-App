@@ -86,7 +86,6 @@
             this.astigmatismos.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
             this.astigmatismos.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
             this.astigmatismos.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
-            this.astigmatismos.Click += new System.EventHandler(this.astigmatismos_Click);
             // 
             // piesh
             // 
@@ -99,7 +98,6 @@
             this.piesh.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
             this.piesh.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
             this.piesh.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
-            this.piesh.Click += new System.EventHandler(this.piesh_Click);
             // 
             // panel1
             // 

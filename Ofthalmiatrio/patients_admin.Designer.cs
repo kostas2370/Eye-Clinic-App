@@ -47,6 +47,10 @@
             this.fullname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.axonas_dexia = new System.Windows.Forms.TextBox();
+            this.axonas_aristera = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.AMKA_CHOICES = new System.Windows.Forms.ComboBox();
             this.kostos = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -86,15 +90,15 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.patientdatagrid = new System.Windows.Forms.DataGridView();
-            this.search_butt = new System.Windows.Forms.Button();
-            this.search_at = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.AMKA_C = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_visit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit_c = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete_c = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.search_butt = new System.Windows.Forms.Button();
+            this.search_at = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -132,7 +136,7 @@
             this.button4.TabIndex = 5;
             this.button4.Text = "Log Out";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.log_out_Click);
             // 
             // button3
             // 
@@ -148,7 +152,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Users";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.user_Click);
             // 
             // movetomedicine
             // 
@@ -303,6 +307,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.axonas_dexia);
+            this.panel3.Controls.Add(this.axonas_aristera);
+            this.panel3.Controls.Add(this.label28);
+            this.panel3.Controls.Add(this.label27);
             this.panel3.Controls.Add(this.AMKA_CHOICES);
             this.panel3.Controls.Add(this.kostos);
             this.panel3.Controls.Add(this.label24);
@@ -344,6 +352,40 @@
             this.panel3.Size = new System.Drawing.Size(465, 715);
             this.panel3.TabIndex = 4;
             // 
+            // axonas_dexia
+            // 
+            this.axonas_dexia.Location = new System.Drawing.Point(204, 397);
+            this.axonas_dexia.Name = "axonas_dexia";
+            this.axonas_dexia.Size = new System.Drawing.Size(50, 23);
+            this.axonas_dexia.TabIndex = 48;
+            // 
+            // axonas_aristera
+            // 
+            this.axonas_aristera.Location = new System.Drawing.Point(204, 363);
+            this.axonas_aristera.Name = "axonas_aristera";
+            this.axonas_aristera.Size = new System.Drawing.Size(50, 23);
+            this.axonas_aristera.TabIndex = 47;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label28.Location = new System.Drawing.Point(6, 395);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(110, 21);
+            this.label28.TabIndex = 46;
+            this.label28.Text = "Αξονας Δεξιά :";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label27.Location = new System.Drawing.Point(6, 361);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(138, 21);
+            this.label27.TabIndex = 45;
+            this.label27.Text = "Aξονας Αριστερα :";
+            // 
             // AMKA_CHOICES
             // 
             this.AMKA_CHOICES.FormattingEnabled = true;
@@ -355,7 +397,7 @@
             // 
             // kostos
             // 
-            this.kostos.Location = new System.Drawing.Point(186, 515);
+            this.kostos.Location = new System.Drawing.Point(160, 558);
             this.kostos.Name = "kostos";
             this.kostos.Size = new System.Drawing.Size(72, 23);
             this.kostos.TabIndex = 43;
@@ -364,7 +406,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label24.Location = new System.Drawing.Point(17, 513);
+            this.label24.Location = new System.Drawing.Point(3, 556);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(145, 21);
             this.label24.TabIndex = 42;
@@ -379,11 +421,11 @@
             this.button1.TabIndex = 41;
             this.button1.Text = "Add Visit";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.add_visit_Click);
             // 
             // diarkeia_therapeias
             // 
-            this.diarkeia_therapeias.Location = new System.Drawing.Point(186, 473);
+            this.diarkeia_therapeias.Location = new System.Drawing.Point(160, 529);
             this.diarkeia_therapeias.Name = "diarkeia_therapeias";
             this.diarkeia_therapeias.Size = new System.Drawing.Size(72, 23);
             this.diarkeia_therapeias.TabIndex = 40;
@@ -392,7 +434,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(17, 475);
+            this.label23.Location = new System.Drawing.Point(3, 531);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(159, 21);
             this.label23.TabIndex = 39;
@@ -454,14 +496,14 @@
             // 
             // piesh_dexio
             // 
-            this.piesh_dexio.Location = new System.Drawing.Point(204, 420);
+            this.piesh_dexio.Location = new System.Drawing.Point(204, 472);
             this.piesh_dexio.Name = "piesh_dexio";
             this.piesh_dexio.Size = new System.Drawing.Size(50, 23);
             this.piesh_dexio.TabIndex = 32;
             // 
             // piesh_aristero
             // 
-            this.piesh_aristero.Location = new System.Drawing.Point(204, 391);
+            this.piesh_aristero.Location = new System.Drawing.Point(204, 435);
             this.piesh_aristero.Name = "piesh_aristero";
             this.piesh_aristero.Size = new System.Drawing.Size(50, 23);
             this.piesh_aristero.TabIndex = 31;
@@ -470,7 +512,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(7, 420);
+            this.label19.Location = new System.Drawing.Point(6, 472);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(98, 21);
             this.label19.TabIndex = 30;
@@ -480,7 +522,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(7, 389);
+            this.label18.Location = new System.Drawing.Point(6, 435);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(126, 21);
             this.label18.TabIndex = 29;
@@ -488,7 +530,7 @@
             // 
             // astigmatismos_dexio
             // 
-            this.astigmatismos_dexio.Location = new System.Drawing.Point(204, 360);
+            this.astigmatismos_dexio.Location = new System.Drawing.Point(203, 334);
             this.astigmatismos_dexio.Name = "astigmatismos_dexio";
             this.astigmatismos_dexio.Size = new System.Drawing.Size(50, 23);
             this.astigmatismos_dexio.TabIndex = 28;
@@ -497,7 +539,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(7, 358);
+            this.label17.Location = new System.Drawing.Point(6, 332);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(158, 21);
             this.label17.TabIndex = 27;
@@ -505,7 +547,7 @@
             // 
             // astigmatismos_aristero
             // 
-            this.astigmatismos_aristero.Location = new System.Drawing.Point(204, 327);
+            this.astigmatismos_aristero.Location = new System.Drawing.Point(203, 301);
             this.astigmatismos_aristero.Name = "astigmatismos_aristero";
             this.astigmatismos_aristero.Size = new System.Drawing.Size(50, 23);
             this.astigmatismos_aristero.TabIndex = 26;
@@ -514,7 +556,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(6, 327);
+            this.label16.Location = new System.Drawing.Point(5, 301);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(186, 21);
             this.label16.TabIndex = 25;
@@ -522,14 +564,14 @@
             // 
             // ypermetropia_dexio
             // 
-            this.ypermetropia_dexio.Location = new System.Drawing.Point(204, 298);
+            this.ypermetropia_dexio.Location = new System.Drawing.Point(203, 272);
             this.ypermetropia_dexio.Name = "ypermetropia_dexio";
             this.ypermetropia_dexio.Size = new System.Drawing.Size(50, 23);
             this.ypermetropia_dexio.TabIndex = 24;
             // 
             // ypermetropia_aristero
             // 
-            this.ypermetropia_aristero.Location = new System.Drawing.Point(204, 266);
+            this.ypermetropia_aristero.Location = new System.Drawing.Point(203, 240);
             this.ypermetropia_aristero.Name = "ypermetropia_aristero";
             this.ypermetropia_aristero.Size = new System.Drawing.Size(50, 23);
             this.ypermetropia_aristero.TabIndex = 23;
@@ -538,7 +580,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(6, 296);
+            this.label15.Location = new System.Drawing.Point(5, 270);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(159, 21);
             this.label15.TabIndex = 22;
@@ -548,7 +590,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(6, 266);
+            this.label13.Location = new System.Drawing.Point(5, 240);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(187, 21);
             this.label13.TabIndex = 21;
@@ -556,7 +598,7 @@
             // 
             // presviopia_dexio
             // 
-            this.presviopia_dexio.Location = new System.Drawing.Point(204, 234);
+            this.presviopia_dexio.Location = new System.Drawing.Point(203, 208);
             this.presviopia_dexio.Name = "presviopia_dexio";
             this.presviopia_dexio.Size = new System.Drawing.Size(50, 23);
             this.presviopia_dexio.TabIndex = 20;
@@ -565,7 +607,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(6, 232);
+            this.label14.Location = new System.Drawing.Point(5, 206);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(145, 21);
             this.label14.TabIndex = 19;
@@ -573,7 +615,7 @@
             // 
             // presviopia_aristero
             // 
-            this.presviopia_aristero.Location = new System.Drawing.Point(204, 203);
+            this.presviopia_aristero.Location = new System.Drawing.Point(203, 177);
             this.presviopia_aristero.Name = "presviopia_aristero";
             this.presviopia_aristero.Size = new System.Drawing.Size(50, 23);
             this.presviopia_aristero.TabIndex = 18;
@@ -582,7 +624,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(6, 201);
+            this.label12.Location = new System.Drawing.Point(5, 175);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(173, 21);
             this.label12.TabIndex = 16;
@@ -590,7 +632,7 @@
             // 
             // myopia_dexio
             // 
-            this.myopia_dexio.Location = new System.Drawing.Point(204, 173);
+            this.myopia_dexio.Location = new System.Drawing.Point(204, 147);
             this.myopia_dexio.Name = "myopia_dexio";
             this.myopia_dexio.Size = new System.Drawing.Size(50, 23);
             this.myopia_dexio.TabIndex = 15;
@@ -599,7 +641,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(5, 171);
+            this.label11.Location = new System.Drawing.Point(5, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(118, 21);
             this.label11.TabIndex = 14;
@@ -607,7 +649,7 @@
             // 
             // myopia_aristero
             // 
-            this.myopia_aristero.Location = new System.Drawing.Point(204, 143);
+            this.myopia_aristero.Location = new System.Drawing.Point(204, 118);
             this.myopia_aristero.Name = "myopia_aristero";
             this.myopia_aristero.Size = new System.Drawing.Size(50, 23);
             this.myopia_aristero.TabIndex = 13;
@@ -616,7 +658,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(5, 141);
+            this.label10.Location = new System.Drawing.Point(5, 116);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(146, 21);
             this.label10.TabIndex = 12;
@@ -624,17 +666,16 @@
             // 
             // visit_date
             // 
-            this.visit_date.Location = new System.Drawing.Point(119, 95);
+            this.visit_date.Location = new System.Drawing.Point(117, 79);
             this.visit_date.Name = "visit_date";
             this.visit_date.Size = new System.Drawing.Size(135, 23);
             this.visit_date.TabIndex = 11;
-            this.visit_date.ValueChanged += new System.EventHandler(this.visit_date_ValueChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(5, 89);
+            this.label9.Location = new System.Drawing.Point(3, 72);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(113, 30);
             this.label9.TabIndex = 10;
@@ -704,45 +745,6 @@
             this.patientdatagrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientdatagrid_CellContentClick);
             this.patientdatagrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientdatagrid_CellContentDoubleClick);
             // 
-            // search_butt
-            // 
-            this.search_butt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.search_butt.Location = new System.Drawing.Point(12, 124);
-            this.search_butt.Name = "search_butt";
-            this.search_butt.Size = new System.Drawing.Size(121, 52);
-            this.search_butt.TabIndex = 42;
-            this.search_butt.Text = "Search";
-            this.search_butt.UseVisualStyleBackColor = false;
-            this.search_butt.Click += new System.EventHandler(this.search_butt_Click);
-            // 
-            // search_at
-            // 
-            this.search_at.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.search_at.Location = new System.Drawing.Point(66, 72);
-            this.search_at.Name = "search_at";
-            this.search_at.Size = new System.Drawing.Size(192, 33);
-            this.search_at.TabIndex = 21;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label26.Location = new System.Drawing.Point(79, 30);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(169, 21);
-            this.label26.TabIndex = 20;
-            this.label26.Text = "By AMKA or Full name ";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label25.Location = new System.Drawing.Point(88, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(156, 30);
-            this.label25.TabIndex = 7;
-            this.label25.Text = "Search Patient :";
-            // 
             // AMKA_C
             // 
             this.AMKA_C.HeaderText = "AMKA";
@@ -781,6 +783,45 @@
             this.delete_c.Text = "Delete";
             this.delete_c.UseColumnTextForButtonValue = true;
             this.delete_c.Width = 70;
+            // 
+            // search_butt
+            // 
+            this.search_butt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.search_butt.Location = new System.Drawing.Point(12, 124);
+            this.search_butt.Name = "search_butt";
+            this.search_butt.Size = new System.Drawing.Size(121, 52);
+            this.search_butt.TabIndex = 42;
+            this.search_butt.Text = "Search";
+            this.search_butt.UseVisualStyleBackColor = false;
+            this.search_butt.Click += new System.EventHandler(this.search_butt_Click);
+            // 
+            // search_at
+            // 
+            this.search_at.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.search_at.Location = new System.Drawing.Point(66, 72);
+            this.search_at.Name = "search_at";
+            this.search_at.Size = new System.Drawing.Size(192, 33);
+            this.search_at.TabIndex = 21;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label26.Location = new System.Drawing.Point(79, 30);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(169, 21);
+            this.label26.TabIndex = 20;
+            this.label26.Text = "By AMKA or Full name ";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label25.Location = new System.Drawing.Point(88, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(156, 30);
+            this.label25.TabIndex = 7;
+            this.label25.Text = "Search Patient :";
             // 
             // patients_admin
             // 
@@ -875,5 +916,9 @@
         private DataGridViewTextBoxColumn last_visit;
         private DataGridViewButtonColumn edit_c;
         private DataGridViewButtonColumn delete_c;
+        private TextBox axonas_dexia;
+        private TextBox axonas_aristera;
+        private Label label28;
+        private Label label27;
     }
 }

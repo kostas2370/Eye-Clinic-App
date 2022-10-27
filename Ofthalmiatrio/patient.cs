@@ -20,6 +20,14 @@ namespace Ofthalmiatrio
         private static SQLiteDataReader rantevou;
         private static string first_rantevou;
         private static string id;
+        string SPH_A = "-";
+        string SPH_D = "-";
+        string CYL_A = "-";
+        string CYL_D = "-";
+        string AXES_A = "-";
+        string AXES_D = "-";
+        string ADD_A = "-";
+        string ADD_D = "-";
         public patient(SQLiteDataReader patient_info)
         {
             
@@ -56,6 +64,8 @@ namespace Ofthalmiatrio
                 yd.Text = last_data["ypermatropia_dexio"].ToString();
                 aa.Text = last_data["astigmatismos_aristero"].ToString();
                 ad.Text = last_data["astigmatismos_dexio"].ToString();
+                axa.Text = last_data["axonas_aristera"].ToString();
+                axd.Text = last_data["axonas_dexia"].ToString();
                 pia.Text = last_data["piesh_aristero"].ToString();
                 pid.Text = last_data["piesh_dexio"].ToString();
                 apotelesma.Text = last_data["Apotelesmata"].ToString();
@@ -70,14 +80,7 @@ namespace Ofthalmiatrio
                 last_data.Close();
                 int x = 0;
 
-                string SPH_A="-";
-                string SPH_D="-";
-                string CYL_A="-";
-                string CYL_D="-";
-                string AXES_A = "-";
-                string AXES_D="-";
-                string ADD_A = "-";
-                string ADD_D = "-";
+         
                 
                 //SPH_A
                 if (Double.Parse(ma.Text)>0)
@@ -110,14 +113,23 @@ namespace Ofthalmiatrio
                 if (Double.Parse(aa.Text) > 0)
                 {
                     CYL_A = $"{SPH_A[0]}{aa.Text}";
-                    AXES_A = "180";
+                    if (SPH_A[0].ToString()=="P")
+                    {
+                        CYL_A = $"+{aa.Text}";
+                    }
+                    
+                    AXES_A = axa.Text;
                 }
             
                 //CYL_D
                 if (Double.Parse(ad.Text) > 0)
                 {
                     CYL_D = $"{SPH_D[0]}{ad.Text}";
-                    AXES_D = "10";
+                    if (SPH_D[0].ToString() == "P")
+                    {
+                        CYL_D = $"+{ad.Text}";
+                    }
+                    AXES_D = axd.Text;
                 }
 
                 //ADD_A
@@ -152,6 +164,10 @@ namespace Ofthalmiatrio
                                           rantevou["ypermatropia_dexio"].ToString(),
                                           rantevou["astigmatismos_aristero"].ToString(),
                                           rantevou["astigmatismos_dexio"].ToString(),
+                                          rantevou["axonas_aristera"].ToString(),
+                                          rantevou["axonas_dexia"].ToString(),
+
+
                                           rantevou["piesh_aristero"].ToString(),
                                           rantevou["piesh_dexio"].ToString(),
                                           rantevou["asthenia"].ToString(),
@@ -187,12 +203,6 @@ namespace Ofthalmiatrio
         
 
 
-        
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void saveapotelesma_Click(object sender, EventArgs e)
         {
@@ -298,7 +308,7 @@ namespace Ofthalmiatrio
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void save_pdf_Click(object sender, EventArgs e)
         {
 
             string path_name;
@@ -324,7 +334,7 @@ namespace Ofthalmiatrio
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void graphs_Click(object sender, EventArgs e)
 
         {
             rantevou = DatabaseDev.getVisit(AMKA.Text);
@@ -358,11 +368,6 @@ namespace Ofthalmiatrio
             }
 
            ;
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
     }

@@ -41,7 +41,7 @@ namespace Ofthalmiatrio
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void save_Click(object sender, EventArgs e)
         {
             if (username.Text == "")
             {
@@ -119,12 +119,14 @@ namespace Ofthalmiatrio
             this.Close();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void log_out_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 form = new Form1();
             form.ShowDialog();
             this.Close();
         }
+
+    
     }
 }

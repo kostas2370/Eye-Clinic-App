@@ -83,7 +83,7 @@ namespace Ofthalmiatrio
         
          
 
-        private void button4_Click(object sender, EventArgs e)
+        private void logout_Click(object sender, EventArgs e)
         {
             
                 this.Hide();
@@ -196,7 +196,7 @@ namespace Ofthalmiatrio
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void search_Click(object sender, EventArgs e)
         {
             string farmako = search.Text;
             int j = 0;
@@ -236,7 +236,7 @@ namespace Ofthalmiatrio
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void settings_Click(object sender, EventArgs e)
         {
             
             if (Form1.userrole == "admin")

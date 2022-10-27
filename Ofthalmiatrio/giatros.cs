@@ -37,6 +37,8 @@ namespace Ofthalmiatrio
             ypermetropia_dexio.Text = "0";
             astigmatismos_aristero.Text = "0";
             astigmatismos_dexio.Text = "0";
+            axonas_aristera.Text = "0";
+            axonas_dexia.Text = "0";
             piesh_aristero.Text = "0";
             piesh_dexio.Text = "0";
             diarkeia_therapeias.Text = "30";
@@ -61,14 +63,12 @@ namespace Ofthalmiatrio
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+     
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void add_visit(object sender, EventArgs e)
         {
-            bool j=false;
+            
+            bool j;
             if (AMKA_CHOICES.Text == "")
             {
                 MessageBox.Show("You must insert a valid AMKA");
@@ -77,27 +77,60 @@ namespace Ofthalmiatrio
             {
                 MessageBox.Show("You must insert a valid cost");
             }
-            try
+            else if (myopia_aristero.Text != "0" & ypermetropia_aristero.Text != "0")
             {
 
-
-                j = DatabaseDev.addVisit(AMKA_CHOICES.Text, visit_date.Value.ToString("yyyy-MM-dd"), myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia_therapeias.Text, kostos.Text);
-
-
+                MessageBox.Show("You cant have values more than 0 in both fields (myopia aristero and ypermetropia aristero) ");
             }
-            catch (Exception exception)
+            else if (myopia_dexio.Text != "0" & ypermetropia_dexio.Text != "0")
             {
-                MessageBox.Show("Invalid data");
-                j = false;
+
+                MessageBox.Show("You cant have values more than 0 in both fields (myopia dexio and ypermetropia dexio) ");
             }
 
-            if (j)
+            else if (astigmatismos_aristero.Text != "0" & axonas_aristera.Text == "0")
             {
-                MessageBox.Show("visit added sucesfully");
+                MessageBox.Show("You must add axis value when u have astigmatismos ");
+
+            }
+            else if (astigmatismos_dexio.Text != "0" & axonas_dexia.Text == "0")
+            {
+                MessageBox.Show("You must add axis value when u have astigmatismos ");
+
+            }
+
+            else
+            {
+                try
+                {
+
+
+                    j = DatabaseDev.addVisit(AMKA_CHOICES.Text, visit_date.Value.ToString("yyyy-MM-dd"), myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text, axonas_aristera.Text, axonas_dexia.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia_therapeias.Text, kostos.Text);
+                    foreach (DataGridViewRow Row in patientdatagrid.Rows)
+                    {
+                        if (Row.Cells["AMKA_C"].ToString() == AMKA_CHOICES.Text)
+                        {
+                            Row.Cells["last_visit"].Value = visit_date.Value.ToString("yyyy-MM-dd");
+                        }
+                    }
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Invalid data");
+                    j = false;
+                }
+
+                if (j)
+                {
+                    MessageBox.Show("visit added sucesfully");
+                }
             }
         }
+    
+    
 
-        private void AMKA_CHOICES_SelectedIndexChanged(object sender, EventArgs e)
+    private void AMKA_CHOICES_SelectedIndexChanged(object sender, EventArgs e)
         {
             var comboBox = (ComboBox)sender;
 
@@ -113,11 +146,14 @@ namespace Ofthalmiatrio
                 ypermetropia_dexio.Text = last_rantevou["ypermatropia_dexio"].ToString();
                 astigmatismos_aristero.Text = last_rantevou["astigmatismos_aristero"].ToString(); ;
                 astigmatismos_dexio.Text = last_rantevou["astigmatismos_dexio"].ToString();
+                axonas_aristera.Text = last_rantevou["axonas_aristera"].ToString();
+                axonas_aristera.Text = last_rantevou["axonas_dexia"].ToString();
                 piesh_aristero.Text = last_rantevou["piesh_aristero"].ToString();
                 piesh_dexio.Text = last_rantevou["piesh_dexio"].ToString();
                 astheneia.Text = last_rantevou["asthenia"].ToString();
                 therapeia.Text = last_rantevou["therapia"].ToString();
                 farmaka.Text = last_rantevou["farmaka"].ToString();
+
 
             }
             else
@@ -131,6 +167,8 @@ namespace Ofthalmiatrio
                 ypermetropia_dexio.Text = "0";
                 astigmatismos_aristero.Text = "0";
                 astigmatismos_dexio.Text = "0";
+                axonas_aristera.Text = "0";
+                axonas_dexia.Text = "0";
                 piesh_aristero.Text = "0";
                 piesh_dexio.Text = "0";
                 astheneia.Text = "";
@@ -198,7 +236,7 @@ namespace Ofthalmiatrio
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void logout_Click(object sender, EventArgs e)
         {
 
             this.Hide();
@@ -216,13 +254,15 @@ namespace Ofthalmiatrio
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void usersettings_Click(object sender, EventArgs e)
         {
             usersettingsform form = new usersettingsform();
             this.Hide();
             form.ShowDialog();
             this.Close();
         }
+
+     
     }
 }
     

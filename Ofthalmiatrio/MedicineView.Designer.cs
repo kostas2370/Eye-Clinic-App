@@ -198,7 +198,6 @@
             this.Controls.Add(this.label1);
             this.Name = "MedicineView";
             this.Text = "MedicineView";
-            this.Load += new System.EventHandler(this.MedicineView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
