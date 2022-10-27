@@ -235,10 +235,10 @@ namespace Ofthalmiatrio
             {
                 string ids = rantevougrid.Rows[e.RowIndex].Cells["ids"].Value.ToString();
                 var rantevous = DatabaseDev.getVisit(AMKA.Text,ids);
-          
-                rantevous.Read();
+                var patient=DatabaseDev.getAstheneis(AMKA.Text);
+               
                 
-                { 
+                
                 string path_name;
 
                     if (rantevougrid.Columns[e.ColumnIndex].Name == "Save")
@@ -251,7 +251,8 @@ namespace Ofthalmiatrio
                             path_name = save.FileName;
                             try
                             {
-                                PdfMaker.getRantevou(path_name, onomatep.Text, AMKA.Text, asfaleia.Text, episkepseis.Text, "", rantevous["hmerominia"].ToString(), rantevous["myopia_aristero"].ToString(), rantevous["myopia_dexio"].ToString(), rantevous["presviopia_aristero"].ToString(), rantevous["presviopia_dexio"].ToString(), rantevous["ypermatropia_aristero"].ToString(), rantevous["ypermatropia_dexio"].ToString(), rantevous["astigmatismos_aristero"].ToString(), rantevous["astigmatismos_dexio"].ToString(), rantevous["piesh_aristero"].ToString(), rantevous["piesh_dexio"].ToString(), rantevous["asthenia"].ToString(), rantevous["therapia"].ToString(), rantevous["farmaka"].ToString(), rantevous["diarkeia_therapeias"].ToString(), rantevous["Apotelesmata"].ToString());
+
+                                PdfMaker.getRantevou(path_name,patient, rantevous,mode:"other");
                             }catch (Exception x)
                             {
                                 MessageBox.Show(x.Message);
@@ -260,7 +261,7 @@ namespace Ofthalmiatrio
                     }
                     else if (rantevougrid.Columns[e.ColumnIndex].Name == "Print")
                     {
-                        PdfMaker.getRantevou($"x{id}.pdf", onomatep.Text, AMKA.Text, asfaleia.Text, episkepseis.Text, "", rantevous["hmerominia"].ToString(), rantevous["myopia_aristero"].ToString(), rantevous["myopia_dexio"].ToString(), rantevous["presviopia_aristero"].ToString(), rantevous["presviopia_dexio"].ToString(), rantevous["ypermatropia_aristero"].ToString(), rantevous["ypermatropia_dexio"].ToString(), rantevous["astigmatismos_aristero"].ToString(), rantevous["astigmatismos_dexio"].ToString(), rantevous["piesh_aristero"].ToString(), rantevous["piesh_dexio"].ToString(), rantevous["asthenia"].ToString(), rantevous["therapia"].ToString(), rantevous["farmaka"].ToString(), rantevous["diarkeia_therapeias"].ToString(), rantevous["Apotelesmata"].ToString());
+                        PdfMaker.getRantevou($"x{id}.pdf",patient,rantevous, mode: "other");
                         PdfMaker.print($"x{id}.pdf");
 
                     }
@@ -293,7 +294,7 @@ namespace Ofthalmiatrio
 
 
                     }
-                }
+                
 
                 }
                     
@@ -312,12 +313,14 @@ namespace Ofthalmiatrio
         {
 
             string path_name;
+            var patient_info = DatabaseDev.getAstheneis(AMKA.Text);
+            var rantevou_info = DatabaseDev.getLastVisit(AMKA.Text);
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Pdf Files|*.pdf";
             if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path_name = save.FileName;
-                PdfMaker.getRantevou(path_name, onomatep.Text, AMKA.Text, asfaleia.Text, episkepseis.Text, eispraxeis.Text, lastv.Text, ma.Text, md.Text, pa.Text, pd.Text, ya.Text, yd.Text, aa.Text, ad.Text, pia.Text, pid.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia.Text, apotelesma.Text);
+                PdfMaker.getRantevou(path_name,patient_info,rantevou_info);
 
 
             }
@@ -328,7 +331,9 @@ namespace Ofthalmiatrio
 
         private void print_butt_Click(object sender, EventArgs e)
         {
-            PdfMaker.getRantevou($"x{id}.pdf", onomatep.Text, AMKA.Text, asfaleia.Text, episkepseis.Text, eispraxeis.Text, lastv.Text, ma.Text, md.Text, pa.Text, pd.Text, ya.Text, yd.Text, aa.Text, ad.Text, pia.Text, pid.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia.Text, apotelesma.Text);
+            var patient_info = DatabaseDev.getAstheneis(AMKA.Text);
+            var rantevou_info = DatabaseDev.getLastVisit(AMKA.Text);
+            PdfMaker.getRantevou($"x{id}.pdf",patient_info,rantevou_info);
             PdfMaker.print($"x{id}.pdf");
 
 

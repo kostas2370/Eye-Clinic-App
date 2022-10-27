@@ -16,10 +16,43 @@ namespace Ofthalmiatrio
 {
     internal class PdfMaker
     {
-        public static void getRantevou(string path_name,string onomateponymo,string amka,string asfaleia,string synolo_episkepsewn,string synolikes_eispraxeis,string visit_date,string mia,string mid,string pa,string pd,string ya,string yd,string aa,string ad,string pia,string pid,string asthenia,string therapeia,string farmaka,string diarkeia,string apotelesma)
+        public static void getRantevou(string path_name, SQLiteDataReader patient_info, SQLiteDataReader rantevou_info,string mode="full")
         {
-             
-            
+
+            //Getting information
+
+            patient_info.Read();
+            string onomateponymo = patient_info["AMKA"].ToString();
+            string amka= patient_info["OnomaTeponimo"].ToString();
+            string asfaleia = patient_info["Asfaleia"].ToString();
+            string synolo_episkepsewn = patient_info["Episkepseis"].ToString();
+            string synolikes_eispraxeis= patient_info["Xrhmatiko_Poso"].ToString();
+            rantevou_info.Read();
+            string visit_date=rantevou_info["hmerominia"].ToString();
+            string mia=rantevou_info["myopia_aristero"].ToString();
+            string mid=rantevou_info["myopia_dexio"].ToString();
+            string pa=rantevou_info["presviopia_aristero"].ToString();
+            string pd=rantevou_info["presviopia_dexio"].ToString();
+            string ya=rantevou_info["ypermatropia_aristero"].ToString();
+            string yd=rantevou_info["ypermatropia_dexio"].ToString();
+            string aa=rantevou_info["astigmatismos_aristero"].ToString();
+            string ad=rantevou_info["astigmatismos_dexio"].ToString();
+            string axa=rantevou_info["axonas_aristera"].ToString();
+            string axd=rantevou_info["axonas_dexia"].ToString();
+            string pia=rantevou_info["piesh_aristero"].ToString();
+            string pid=rantevou_info["piesh_dexio"].ToString();
+            string asthenia= rantevou_info["asthenia"].ToString();
+            string therapeia= rantevou_info["therapia"].ToString();
+            string farmaka=rantevou_info["farmaka"].ToString();
+            string diarkeia=rantevou_info["diarkeia_therapeias"].ToString();
+            string apotelesma=rantevou_info["Apotelesmata"].ToString();
+
+
+
+
+
+
+
             // creating a doc 
             Document doc = new Document();
             // The font we will use in our pdf
@@ -35,7 +68,7 @@ namespace Ofthalmiatrio
             Aspose.Pdf.Text.TextSegment inro = new Aspose.Pdf.Text.TextSegment("Στοιχεία Ασθενούς :                                     Eye Clinic\n                                                                       ΔΙΠΑΕ");
             Aspose.Pdf.Text.TextSegment stoixeia;
          
-            if (synolikes_eispraxeis == "")
+            if (mode != "full")
             {
                  stoixeia = new Aspose.Pdf.Text.TextSegment($"\nΟνοματεπώνυμο : {onomateponymo} \nAMKA : {amka}\nΑσφαλεια : {asfaleia}\nΗμερομηνία Ραντεβού : {visit_date}");
 

@@ -14,11 +14,15 @@ namespace Ofthalmiatrio
 {
     public partial class visitform : Form
     {
+        SQLiteDataReader u_patient_info;
+        SQLiteDataReader u_rantevou;
+
         public visitform(SQLiteDataReader patient_info, SQLiteDataReader rantevou)
         {
             InitializeComponent();
             setstyle.setStyle(this);
-
+            u_patient_info = patient_info;
+            u_rantevou=rantevou;
             if (patient_info.HasRows)
             {
                 patient_info.Read();
@@ -66,14 +70,14 @@ namespace Ofthalmiatrio
             if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path_name = save.FileName;
-                PdfMaker.getRantevou(path_name, onomatep.Text, AMKA.Text, asfaleia.Text, "", "", lastv.Text, ma.Text, md.Text, pa.Text, pd.Text, ya.Text, yd.Text, aa.Text, ad.Text, pia.Text, pid.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia.Text, apotelesma.Text);
+                PdfMaker.getRantevou(path_name,u_patient_info,u_rantevou, mode: "other");
 
 
             }
         }
             private void printbutt_Click(object sender, EventArgs e)
         {
-            PdfMaker.getRantevou("print.pdf", onomatep.Text, AMKA.Text, asfaleia.Text, "", "", lastv.Text, ma.Text, md.Text, pa.Text, pd.Text, ya.Text, yd.Text, aa.Text, ad.Text, pia.Text, pid.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia.Text, apotelesma.Text);
+            PdfMaker.getRantevou("print.pdf",u_patient_info, u_rantevou, mode: "other");
             PdfMaker.print("print.pdf");
 
         }
