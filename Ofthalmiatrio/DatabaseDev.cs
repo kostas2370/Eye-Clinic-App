@@ -270,10 +270,10 @@ namespace Ofthalmiatrio
         }
 
 
-        public static bool updateVisit(string id, string myopia_aristero, string myopia_dexio, string presviopia_aristero, string presviopia_dexio, string ypermetropia_aristero, string ypermetropia_dexio, string astigmatismos_aristero, string astigmatismos_dexio, string piesh_aristero, string piesh_dexio, string astheneia, string therapeia, string farmaka, string diarkeia, string apot)
+        public static bool updateVisit(string id, string myopia_aristero, string myopia_dexio, string presviopia_aristero, string presviopia_dexio, string ypermetropia_aristero, string ypermetropia_dexio, string astigmatismos_aristero, string astigmatismos_dexio,string axonas_aristera,string axonas_dexia, string piesh_aristero, string piesh_dexio, string astheneia, string therapeia, string farmaka, string diarkeia, string apot)
         {
             sqlite_cmd = conn.CreateCommand();
-            string editVisit = $"UPDATE rantevou SET myopia_aristero={myopia_aristero},myopia_dexio={myopia_dexio},presviopia_aristero={presviopia_aristero},presviopia_dexio={presviopia_dexio},ypermatropia_aristero={ypermetropia_aristero},ypermatropia_dexio={ypermetropia_dexio},piesh_aristero={piesh_aristero},piesh_dexio={piesh_dexio},asthenia='{astheneia}',therapia='{therapeia}',farmaka='{farmaka}',diarkeia_therapeias={diarkeia},Apotelesmata='{apot}' WHERE id = {id}";
+            string editVisit = $"UPDATE rantevou SET myopia_aristero={myopia_aristero},myopia_dexio={myopia_dexio},presviopia_aristero={presviopia_aristero},presviopia_dexio={presviopia_dexio},ypermatropia_aristero={ypermetropia_aristero},ypermatropia_dexio={ypermetropia_dexio},astigmatismos_aristero={astigmatismos_aristero},astigmatismos_dexio={astigmatismos_dexio},axonas_aristera={axonas_aristera},axonas_dexia={axonas_dexia},piesh_aristero={piesh_aristero},piesh_dexio={piesh_dexio},asthenia='{astheneia}',therapia='{therapeia}',farmaka='{farmaka}',diarkeia_therapeias={diarkeia},Apotelesmata='{apot}' WHERE id = {id}";
             sqlite_cmd.CommandText = editVisit;
             int j = sqlite_cmd.ExecuteNonQuery();
             return j == 1;

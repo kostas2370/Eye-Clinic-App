@@ -16,7 +16,7 @@ namespace Ofthalmiatrio
 {
     internal class PdfMaker
     {
-        public static void getRantevou(string path_name, SQLiteDataReader patient_info, SQLiteDataReader rantevou_info,string mode="full")
+        public static void getRantevou(string path_name, SQLiteDataReader patient_info, SQLiteDataReader rantevou_info,List<string> gyalia=null,string mode="full")
         {
 
             //Getting information
@@ -173,10 +173,6 @@ namespace Ofthalmiatrio
             apot.TextState = generalts;
             Aspose.Pdf.Text.TextSegment apotelesm = new Aspose.Pdf.Text.TextSegment($"{apotelesma}");
             apotelesm.TextState = textts;
-
-
-            //adding the segments into the page
-
             fragment2.Segments.Add(asth);
             fragment2.Segments.Add(asthen);
             fragment2.Segments.Add(ther);
@@ -188,9 +184,52 @@ namespace Ofthalmiatrio
             fragment2.Segments.Add(apot);
             fragment2.Segments.Add(apotelesm);
 
+
             page.Paragraphs.Add(fragment2);
 
-            
+
+            if (!(gyalia is null))
+            {
+
+                Aspose.Pdf.Text.TextSegment gιalia = new Aspose.Pdf.Text.TextSegment("\n\nΓυαλιά : \n\n");
+                gιalia.TextState = generalts;
+                Aspose.Pdf.Table glass_table = new Aspose.Pdf.Table();
+                glass_table.Border = new Aspose.Pdf.BorderInfo(Aspose.Pdf.BorderSide.All, .5f, Aspose.Pdf.Color.FromRgb(System.Drawing.Color.Black));
+                glass_table.DefaultCellBorder = new Aspose.Pdf.BorderInfo(Aspose.Pdf.BorderSide.All,.5f, Aspose.Pdf.Color.FromRgb(System.Drawing.Color.Black));
+                glass_table.DefaultCellTextState = textts;
+                Aspose.Pdf.Row row_head = glass_table.Rows.Add();
+                row_head.Cells.Add("  MATI");
+                row_head.Cells.Add("  Sphere");
+                row_head.Cells.Add("  CYL");
+                row_head.Cells.Add("  AXIS");
+                row_head.Cells.Add("  ADD");
+
+
+                Aspose.Pdf.Row row_aristera = glass_table.Rows.Add();
+                row_aristera.Cells.Add($"  {gyalia[0]} ");
+                row_aristera.Cells.Add($"  {gyalia[1]} ");
+                row_aristera.Cells.Add($"  {gyalia[2]} ");
+                row_aristera.Cells.Add($"  {gyalia[3]} ");
+                row_aristera.Cells.Add($"  {gyalia[4]} ");
+                Aspose.Pdf.Row row_dexia = glass_table.Rows.Add();
+                row_dexia.Cells.Add($"  {gyalia[5]} ");
+                row_dexia.Cells.Add($"  {gyalia[6]} ");
+                row_dexia.Cells.Add($"  {gyalia[7]} ");
+                row_dexia.Cells.Add($"  {gyalia[8]} ");
+                row_dexia.Cells.Add($"  {gyalia[9]} ");
+
+                glass_table.ColumnWidths = "70 2cm";
+                glass_table.HorizontalAlignment = Aspose.Pdf.HorizontalAlignment.Center;
+
+                fragment2.Segments.Add(gιalia);
+
+                page.Paragraphs.Add(glass_table);
+            }
+            //adding the segments into the page
+          
+
+
+
 
             doc.Save(path_name);
 

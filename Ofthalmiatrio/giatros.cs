@@ -138,18 +138,18 @@ namespace Ofthalmiatrio
             if (last_rantevou.HasRows)
             {
                 last_rantevou.Read();
-                myopia_aristero.Text = last_rantevou["myopia_aristero"].ToString();
-                myopia_dexio.Text = last_rantevou["myopia_dexio"].ToString();
-                presviopia_aristero.Text = last_rantevou["presviopia_aristero"].ToString();
-                presviopia_dexio.Text = last_rantevou["presviopia_dexio"].ToString();
-                ypermetropia_aristero.Text = last_rantevou["ypermatropia_aristero"].ToString();
-                ypermetropia_dexio.Text = last_rantevou["ypermatropia_dexio"].ToString();
-                astigmatismos_aristero.Text = last_rantevou["astigmatismos_aristero"].ToString(); ;
-                astigmatismos_dexio.Text = last_rantevou["astigmatismos_dexio"].ToString();
-                axonas_aristera.Text = last_rantevou["axonas_aristera"].ToString();
-                axonas_aristera.Text = last_rantevou["axonas_dexia"].ToString();
-                piesh_aristero.Text = last_rantevou["piesh_aristero"].ToString();
-                piesh_dexio.Text = last_rantevou["piesh_dexio"].ToString();
+                myopia_aristero.Text = last_rantevou["myopia_aristero"].ToString().Replace(',', '.');
+                myopia_dexio.Text = last_rantevou["myopia_dexio"].ToString().Replace(',', '.');
+                presviopia_aristero.Text = last_rantevou["presviopia_aristero"].ToString().Replace(',', '.');
+                presviopia_dexio.Text = last_rantevou["presviopia_dexio"].ToString().Replace(',', '.');
+                ypermetropia_aristero.Text = last_rantevou["ypermatropia_aristero"].ToString().Replace(',', '.');
+                ypermetropia_dexio.Text = last_rantevou["ypermatropia_dexio"].ToString().Replace(',', '.');
+                astigmatismos_aristero.Text = last_rantevou["astigmatismos_aristero"].ToString().Replace(',', '.');
+                astigmatismos_dexio.Text = last_rantevou["astigmatismos_dexio"].ToString().Replace(',', '.');
+                axonas_aristera.Text = last_rantevou["axonas_aristera"].ToString().Replace(',', '.');
+                axonas_aristera.Text = last_rantevou["axonas_dexia"].ToString().Replace(',', '.');
+                piesh_aristero.Text = last_rantevou["piesh_aristero"].ToString().Replace(',', '.');
+                piesh_dexio.Text = last_rantevou["piesh_dexio"].ToString().Replace(',', '.');
                 astheneia.Text = last_rantevou["asthenia"].ToString();
                 therapeia.Text = last_rantevou["therapia"].ToString();
                 farmaka.Text = last_rantevou["farmaka"].ToString();

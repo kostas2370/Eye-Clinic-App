@@ -28,6 +28,9 @@ namespace Ofthalmiatrio
         string AXES_D = "-";
         string ADD_A = "-";
         string ADD_D = "-";
+
+
+        
         public patient(SQLiteDataReader patient_info)
         {
             
@@ -145,6 +148,8 @@ namespace Ofthalmiatrio
 
                 gyalia_data_grid.Rows.Add("Α.Ο",SPH_A,CYL_A,AXES_A,ADD_A);
                 gyalia_data_grid.Rows.Add("Δ.Ο",SPH_D,CYL_D,AXES_D,ADD_D);
+            
+                
                 while (rantevou.Read())
                 {
                     if(x== 0)
@@ -166,8 +171,6 @@ namespace Ofthalmiatrio
                                           rantevou["astigmatismos_dexio"].ToString(),
                                           rantevou["axonas_aristera"].ToString(),
                                           rantevou["axonas_dexia"].ToString(),
-
-
                                           rantevou["piesh_aristero"].ToString(),
                                           rantevou["piesh_dexio"].ToString(),
                                           rantevou["asthenia"].ToString(),
@@ -201,8 +204,6 @@ namespace Ofthalmiatrio
 
         }
         
-
-
 
         private void saveapotelesma_Click(object sender, EventArgs e)
         {
@@ -269,7 +270,7 @@ namespace Ofthalmiatrio
                     {
 
 
-                        EditRant form = new EditRant(ids, AMKA.Text, rantevous["hmerominia"].ToString(), rantevous["myopia_aristero"].ToString(), rantevous["myopia_dexio"].ToString(), rantevous["presviopia_aristero"].ToString(), rantevous["presviopia_dexio"].ToString(), rantevous["ypermatropia_aristero"].ToString(), rantevous["ypermatropia_dexio"].ToString(), rantevous["astigmatismos_aristero"].ToString(), rantevous["astigmatismos_dexio"].ToString(), rantevous["piesh_aristero"].ToString(), rantevous["piesh_dexio"].ToString(), rantevous["asthenia"].ToString(), rantevous["therapia"].ToString(), rantevous["farmaka"].ToString(), rantevous["diarkeia_therapeias"].ToString(), rantevous["Apotelesmata"].ToString());
+                        EditRant form = new EditRant(rantevous);
                         form.ShowDialog();
                         var new_data = DatabaseDev.getVisit(ids);
                         new_data.Read();
@@ -300,8 +301,6 @@ namespace Ofthalmiatrio
                     
                 }
             
-        
-
         private void edit_but_Click(object sender, EventArgs e)
         {
             editpatient form = new editpatient(AMKA.Text, onomatep.Text, asfaleia.Text);
@@ -316,11 +315,23 @@ namespace Ofthalmiatrio
             var patient_info = DatabaseDev.getAstheneis(AMKA.Text);
             var rantevou_info = DatabaseDev.getLastVisit(AMKA.Text);
             SaveFileDialog save = new SaveFileDialog();
+            List<string> list = new List<string>();
+            list.Add("A.O");
+            list.Add(SPH_A);
+            list.Add(CYL_A);
+            list.Add(AXES_A);
+            list.Add(ADD_A);
+            list.Add("Δ.O");
+            list.Add(SPH_D);
+            list.Add(CYL_D);
+            list.Add(AXES_D);
+            list.Add(ADD_D);
+
             save.Filter = "Pdf Files|*.pdf";
             if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path_name = save.FileName;
-                PdfMaker.getRantevou(path_name,patient_info,rantevou_info);
+                PdfMaker.getRantevou(path_name,patient_info,rantevou_info,list);
 
 
             }
@@ -375,5 +386,11 @@ namespace Ofthalmiatrio
            ;
 
         }
+
+        private void gyalia_data_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }
