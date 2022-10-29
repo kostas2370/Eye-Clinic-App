@@ -48,7 +48,7 @@ namespace Ofthalmiatrio
 
             sqlite_cmd.CommandText = "CREATE TABLE IF NOT EXISTS astheneis(AMKA VARCHAR(11) PRIMARY KEY,OnomaTeponimo VARCHAR(40) NOT NULL,Asfaleia VARCHAR(20) NOT NULL,Xrhmatiko_Poso INT,Episkepseis INT NOT NULL)"; ;
             sqlite_cmd.ExecuteNonQuery();
-            sqlite_cmd.CommandText = "CREATE TABLE IF NOT EXISTS rantevou(id INTEGER PRIMARY KEY,AMKA VARCHAR(11),hmerominia Text NOT NULL,myopia_aristero REAL,myopia_dexio REAL,presviopia_aristero REAL,presviopia_dexio REAL,ypermatropia_aristero REAL,ypermatropia_dexio REAL,astigmatismos_aristero REAL,astigmatismos_dexio REAL,axonas_aristera REAL,axonas_dexia REAL,piesh_aristero REAL,piesh_dexio REAL,asthenia TEXT,therapia TEXT,farmaka TEXT,diarkeia_therapeias INT,Apotelesmata TEXT,FOREIGN KEY(AMKA) REFERENCES astheneis(AMKA) ) "; ;
+            sqlite_cmd.CommandText = "CREATE TABLE IF NOT EXISTS rantevou(id INTEGER PRIMARY KEY,AMKA VARCHAR(11),hmerominia Text NOT NULL,myopia_aristero REAL,myopia_dexio REAL,presviopia_aristero REAL,presviopia_dexio REAL,ypermatropia_aristero REAL,ypermatropia_dexio REAL,astigmatismos_aristero REAL,astigmatismos_dexio REAL,axonas_aristera REAL,axonas_dexia REAL,piesh_aristero REAL,piesh_dexio REAL,asthenia TEXT,therapia TEXT,farmaka TEXT,diarkeia_therapeias INT,Apotelesmata TEXT,kostos REAL  ,FOREIGN KEY(AMKA) REFERENCES astheneis(AMKA) ) "; ;
             sqlite_cmd.ExecuteNonQuery();
             sqlite_cmd.CommandText = "CREATE TABLE IF NOT EXISTS medicine(id INTEGER PRIMARY KEY,onoma TEXT NOT NULL UNIQUE,typos TEXT NOT NULL,symptomata TEXT,promitheftes TEXT)";
             sqlite_cmd.ExecuteNonQuery();
@@ -179,7 +179,7 @@ namespace Ofthalmiatrio
         public static Boolean addVisit(string AMKA, string visit_date, string myopia_aristero, string myopia_dexio, string presviopia_aristero, string presviopia_dexio, string ypermetropia_aristero, string ypermetropia_dexio, string astigmatismos_aristero, string astigmatismos_dexio,string axonas_aristera,string axonas_dexia, string piesh_aristero, string piesh_dexio, string astheneia, string therapeia, string farmaka, string diarkeia, string kostos)
         {
             sqlite_cmd = conn.CreateCommand();
-            string addvis = $"INSERT INTO rantevou(AMKA,hmerominia,myopia_aristero,myopia_dexio,presviopia_aristero,presviopia_dexio,ypermatropia_aristero,ypermatropia_dexio,astigmatismos_aristero,astigmatismos_dexio,axonas_aristera,axonas_dexia,piesh_aristero,piesh_dexio,asthenia,therapia,farmaka,diarkeia_therapeias) VALUES('{AMKA}','{visit_date}',{myopia_aristero},{myopia_dexio},{presviopia_aristero},{presviopia_dexio},{ypermetropia_aristero},{ypermetropia_dexio},{astigmatismos_aristero},{astigmatismos_dexio},{axonas_aristera},{axonas_dexia},{piesh_aristero},{piesh_dexio},'{astheneia}','{therapeia}','{farmaka}',{diarkeia})";
+            string addvis = $"INSERT INTO rantevou(AMKA,hmerominia,myopia_aristero,myopia_dexio,presviopia_aristero,presviopia_dexio,ypermatropia_aristero,ypermatropia_dexio,astigmatismos_aristero,astigmatismos_dexio,axonas_aristera,axonas_dexia,piesh_aristero,piesh_dexio,asthenia,therapia,farmaka,diarkeia_therapeias,kostos) VALUES('{AMKA}','{visit_date}',{myopia_aristero},{myopia_dexio},{presviopia_aristero},{presviopia_dexio},{ypermetropia_aristero},{ypermetropia_dexio},{astigmatismos_aristero},{astigmatismos_dexio},{axonas_aristera},{axonas_dexia},{piesh_aristero},{piesh_dexio},'{astheneia}','{therapeia}','{farmaka}',{diarkeia},{kostos})";
             string update_astheneis = $"UPDATE astheneis SET Episkepseis = Episkepseis+1, Xrhmatiko_Poso=Xrhmatiko_Poso+{kostos} WHERE AMKA='{AMKA}'";
             sqlite_cmd.CommandText = addvis;
             int j = sqlite_cmd.ExecuteNonQuery();
@@ -235,13 +235,13 @@ namespace Ofthalmiatrio
 
 
 
-        public static bool deleteVisit(string id, string AMKA)
+        public static bool deleteVisit(string id, string AMKA, string kostos="0")
         {
             sqlite_cmd = conn.CreateCommand();
             if (!(id is null))
             {
                 string deleteRantevou = $"DELETE FROM rantevou WHERE id = {id}";
-                string update_astheneis = $"UPDATE astheneis SET Episkepseis = Episkepseis-1  WHERE AMKA='{AMKA}'";
+                string update_astheneis = $"UPDATE astheneis SET Episkepseis = Episkepseis-1,Xrhmatiko_Poso=Xrhmatiko_Poso-{kostos}  WHERE AMKA='{AMKA}'";
 
                 sqlite_cmd.CommandText = deleteRantevou;
                 int j = sqlite_cmd.ExecuteNonQuery();

@@ -65,6 +65,7 @@
             this.farmak = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kostos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Save = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Print = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -189,7 +190,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(342, 5);
+            label6.Location = new System.Drawing.Point(393, 4);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(90, 25);
             label6.TabIndex = 32;
@@ -261,7 +262,7 @@
             // 
             this.lastv.AutoSize = true;
             this.lastv.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lastv.Location = new System.Drawing.Point(438, 12);
+            this.lastv.Location = new System.Drawing.Point(498, 12);
             this.lastv.Name = "lastv";
             this.lastv.Size = new System.Drawing.Size(55, 13);
             this.lastv.TabIndex = 33;
@@ -335,6 +336,7 @@
             this.farmak,
             this.diark,
             this.apot,
+            this.kostos,
             this.Save,
             this.Print,
             this.Delete,
@@ -482,6 +484,12 @@
             this.apot.Name = "apot";
             this.apot.ReadOnly = true;
             this.apot.Width = 80;
+            // 
+            // kostos
+            // 
+            this.kostos.HeaderText = "Kόστος";
+            this.kostos.Name = "kostos";
+            this.kostos.ReadOnly = true;
             // 
             // Save
             // 
@@ -749,11 +757,10 @@
             // 
             this.pia.AutoSize = true;
             this.pia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pia.Location = new System.Drawing.Point(456, 177);
+            this.pia.Location = new System.Drawing.Point(463, 175);
             this.pia.Name = "pia";
-            this.pia.Size = new System.Drawing.Size(19, 21);
+            this.pia.Size = new System.Drawing.Size(0, 21);
             this.pia.TabIndex = 31;
-            this.pia.Text = "1";
             // 
             // pid
             // 
@@ -761,9 +768,8 @@
             this.pid.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pid.Location = new System.Drawing.Point(562, 174);
             this.pid.Name = "pid";
-            this.pid.Size = new System.Drawing.Size(19, 21);
+            this.pid.Size = new System.Drawing.Size(0, 21);
             this.pid.TabIndex = 30;
-            this.pid.Text = "1";
             // 
             // ad
             // 
@@ -965,7 +971,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(553, -1);
+            this.label7.Location = new System.Drawing.Point(654, -1);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(241, 30);
             this.label7.TabIndex = 11;
@@ -1125,6 +1131,7 @@
         private DataGridViewTextBoxColumn farmak;
         private DataGridViewTextBoxColumn diark;
         private DataGridViewTextBoxColumn apot;
+        private DataGridViewTextBoxColumn kostos;
         private DataGridViewButtonColumn Save;
         private DataGridViewButtonColumn Print;
         private DataGridViewButtonColumn Delete;

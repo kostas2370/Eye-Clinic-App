@@ -177,7 +177,8 @@ namespace Ofthalmiatrio
                                           rantevou["therapia"].ToString(),
                                           rantevou["farmaka"].ToString(),
                                           rantevou["diarkeia_therapeias"].ToString(),
-                                          rantevou["Apotelesmata"].ToString()
+                                          rantevou["Apotelesmata"].ToString(),
+                                          rantevou["kostos"].ToString()
 
 
 
@@ -288,9 +289,10 @@ namespace Ofthalmiatrio
                         if(dialogResult == DialogResult.Yes)
                         {
                             rantevougrid.Rows[e.RowIndex].Visible = false;
+                            DatabaseDev.deleteVisit(ids, AMKA.Text, rantevougrid.Rows[e.RowIndex].Cells["kostos"].Value.ToString());
 
-                        }
-                        DatabaseDev.deleteVisit(ids, AMKA.Text);
+                    }
+                       
                        
 
 
