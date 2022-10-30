@@ -165,10 +165,9 @@ namespace Ofthalmiatrio
             farm.TextState = generalts;
             Aspose.Pdf.Text.TextSegment farmak = new Aspose.Pdf.Text.TextSegment($"{farmaka}");
             farmak.TextState = textts;
-            Aspose.Pdf.Text.TextSegment diark = new Aspose.Pdf.Text.TextSegment("\n\nΔιάρκεια Θεραπείας : ");
+            Aspose.Pdf.Text.TextSegment diark = new Aspose.Pdf.Text.TextSegment($"\n\nΔιάρκεια Θεραπείας : {diarkeia}");
             diark.TextState = generalts;
-            Aspose.Pdf.Text.TextSegment diarkia = new Aspose.Pdf.Text.TextSegment($"{diarkeia}");
-            diarkia.TextState = textts;
+           
             Aspose.Pdf.Text.TextSegment apot = new Aspose.Pdf.Text.TextSegment("\n\nAποτέλεσμα Θεραπείας : \n\n");
             apot.TextState = generalts;
             Aspose.Pdf.Text.TextSegment apotelesm = new Aspose.Pdf.Text.TextSegment($"{apotelesma}");
@@ -180,7 +179,9 @@ namespace Ofthalmiatrio
             fragment2.Segments.Add(farm);
             fragment2.Segments.Add(farmak);
             fragment2.Segments.Add(diark);
-            fragment2.Segments.Add(diarkia);
+            
+            
+            
             fragment2.Segments.Add(apot);
             fragment2.Segments.Add(apotelesm);
 
