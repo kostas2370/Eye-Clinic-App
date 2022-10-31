@@ -83,19 +83,19 @@ namespace Ofthalmiatrio
                 last_data.Close();
                 int x = 0;
 
-         
-                
+
                 //SPH_A
-                if (Double.Parse(ma.Text)>0)
+                if (Double.Parse(ma.Text) > 0)
                 {
-                    SPH_A= $"-{ma.Text}";
-                }else if(Double.Parse(ya.Text) > 0)
+                    SPH_A = $"-{ma.Text}";
+                }
+                else if (Double.Parse(ya.Text) > 0)
                 {
                     SPH_A = $"+{ya.Text}";
                 }
                 else
                 {
-                    SPH_A ="Plano";
+                    SPH_A = "Plano";
                 }
 
                 //SPH_D
@@ -116,14 +116,14 @@ namespace Ofthalmiatrio
                 if (Double.Parse(aa.Text) > 0)
                 {
                     CYL_A = $"{SPH_A[0]}{aa.Text}";
-                    if (SPH_A[0].ToString()=="P")
+                    if (SPH_A[0].ToString() == "P")
                     {
                         CYL_A = $"+{aa.Text}";
                     }
-                    
+
                     AXES_A = axa.Text;
                 }
-            
+
                 //CYL_D
                 if (Double.Parse(ad.Text) > 0)
                 {
@@ -145,6 +145,8 @@ namespace Ofthalmiatrio
                 {
                     ADD_D = $"+{pd.Text}";
                 }
+
+
 
                 gyalia_data_grid.Rows.Add("Α.Ο",SPH_A,CYL_A,AXES_A,ADD_A);
                 gyalia_data_grid.Rows.Add("Δ.Ο",SPH_D,CYL_D,AXES_D,ADD_D);
@@ -389,10 +391,6 @@ namespace Ofthalmiatrio
 
         }
 
-        private void gyalia_data_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
     }
 }

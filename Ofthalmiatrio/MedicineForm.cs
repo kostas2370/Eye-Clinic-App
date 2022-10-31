@@ -46,11 +46,6 @@ namespace Ofthalmiatrio
             }
         }   
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void patientbut_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -79,9 +74,6 @@ namespace Ofthalmiatrio
             }
 
         }
-
-        
-         
 
         private void logout_Click(object sender, EventArgs e)
         {
@@ -160,10 +152,10 @@ namespace Ofthalmiatrio
                 if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     path_name = save.FileName;
-                    var data = DatabaseDev.getMedicine(ids);
-                    data.Read();
-                    PdfMaker.getMedicine(path_name, ids, data["onoma"].ToString(), data["typos"].ToString(), data["symptomata"].ToString(), data["promitheftes"].ToString());
-                    data.Close();
+                     
+                    
+                    PdfMaker.getMedicine(path_name,DatabaseDev.getMedicine(ids));
+                    
                 }
 
 
@@ -171,9 +163,8 @@ namespace Ofthalmiatrio
             }
             else if (medicingridview.Columns[e.ColumnIndex].Name == "Print")
             {
-                var data = DatabaseDev.getMedicine(ids);
-                data.Read();
-                PdfMaker.getMedicine($"{"print.pdf"}", ids, data["onoma"].ToString(), data["typos"].ToString(), data["symptomata"].ToString(), data["promitheftes"].ToString());
+             
+                PdfMaker.getMedicine($"{"print.pdf"}", DatabaseDev.getMedicine(ids));
                 PdfMaker.print("print.pdf");
 
 

@@ -41,14 +41,14 @@ namespace Ofthalmiatrio
             {
                 path_name = save.FileName;
               
-                PdfMaker.getMedicine(path_name, ids.Text, onoma.Text, typos.Text,symptomata.Text, promitheftes.Text);
+                PdfMaker.getMedicine(path_name,DatabaseDev.getMedicine(ids.Text));
                 
             }
         }
 
         private void printbutt_Click(object sender, EventArgs e)
         {
-            PdfMaker.getMedicine("print.pdf", ids.Text, onoma.Text, typos.Text, symptomata.Text, promitheftes.Text);
+            PdfMaker.getMedicine("print.pdf", DatabaseDev.getMedicine(ids.Text));
             PdfMaker.print("print.pdf");
         }
     }
