@@ -28,9 +28,10 @@ namespace Ofthalmiatrio
         string AXES_D = "-";
         string ADD_A = "-";
         string ADD_D = "-";
+        List<string> gyalia_list = new List<string>();
 
 
-        
+
         public patient(SQLiteDataReader patient_info)
         {
             
@@ -150,8 +151,19 @@ namespace Ofthalmiatrio
 
                 gyalia_data_grid.Rows.Add("Α.Ο",SPH_A,CYL_A,AXES_A,ADD_A);
                 gyalia_data_grid.Rows.Add("Δ.Ο",SPH_D,CYL_D,AXES_D,ADD_D);
-            
-                
+
+                gyalia_list.Add("A.O");
+                gyalia_list.Add(SPH_A);
+                gyalia_list.Add(CYL_A);
+                gyalia_list.Add(AXES_A);
+                gyalia_list.Add(ADD_A);
+                gyalia_list.Add("Δ.O");
+                gyalia_list.Add(SPH_D);
+                gyalia_list.Add(CYL_D);
+                gyalia_list.Add(AXES_D);
+                gyalia_list.Add(ADD_D);
+
+
                 while (rantevou.Read())
                 {
                     if(x== 0)
@@ -219,13 +231,14 @@ namespace Ofthalmiatrio
                 bool b = DatabaseDev.update_apotelesma(id, apotelesma.Text);
                 if (b)
                 {
-                    redo = true;
+                    
                     MessageBox.Show("Success");
 
                    
                     apotelesma.ReadOnly = true;
                     amk = AMKA.Text;
-                    this.Close();
+                    saveapotelesma.Visible = false;
+                    
                 }
                
 
@@ -319,23 +332,12 @@ namespace Ofthalmiatrio
             var patient_info = DatabaseDev.getAstheneis(AMKA.Text);
             var rantevou_info = DatabaseDev.getLastVisit(AMKA.Text);
             SaveFileDialog save = new SaveFileDialog();
-            List<string> list = new List<string>();
-            list.Add("A.O");
-            list.Add(SPH_A);
-            list.Add(CYL_A);
-            list.Add(AXES_A);
-            list.Add(ADD_A);
-            list.Add("Δ.O");
-            list.Add(SPH_D);
-            list.Add(CYL_D);
-            list.Add(AXES_D);
-            list.Add(ADD_D);
-
+         
             save.Filter = "Pdf Files|*.pdf";
             if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path_name = save.FileName;
-                PdfMaker.getRantevou(path_name,patient_info,rantevou_info,list);
+                PdfMaker.getRantevou(path_name,patient_info,rantevou_info,gyalia_list);
 
 
             }
@@ -348,7 +350,7 @@ namespace Ofthalmiatrio
         {
             var patient_info = DatabaseDev.getAstheneis(AMKA.Text);
             var rantevou_info = DatabaseDev.getLastVisit(AMKA.Text);
-            PdfMaker.getRantevou($"x{id}.pdf",patient_info,rantevou_info);
+            PdfMaker.getRantevou($"x{id}.pdf",patient_info,rantevou_info,gyalia_list);
             PdfMaker.print($"x{id}.pdf");
 
 

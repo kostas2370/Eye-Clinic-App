@@ -226,7 +226,7 @@ namespace Ofthalmiatrio
             // creating the viewer and adding the settings
             PdfViewer viewer = new PdfViewer();
             viewer.BindPdf(System.IO.Path.Combine(name));
-            viewer.AutoResize = true;         
+            viewer.AutoResize = false;         
             viewer.AutoRotate = true;         
             viewer.PrintPageDialog = false;
 
@@ -234,6 +234,7 @@ namespace Ofthalmiatrio
             System.Drawing.Printing.PageSettings pgs = new System.Drawing.Printing.PageSettings();
             System.Drawing.Printing.PrintDocument prtdoc = new System.Drawing.Printing.PrintDocument();
             ps.PrinterName = prtdoc.PrinterSettings.PrinterName;
+           
             System.Windows.Forms.PrintDialog printDialog = new System.Windows.Forms.PrintDialog();
 
             if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
