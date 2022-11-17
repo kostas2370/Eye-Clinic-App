@@ -149,74 +149,80 @@ namespace Ofthalmiatrio
 
         private void userdatagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string role = userdatagrid.Rows[e.RowIndex].Cells["role"].FormattedValue.ToString();
-
-            string username = userdatagrid.Rows[e.RowIndex].Cells["username"].FormattedValue.ToString();
-            string id=userdatagrid.Rows[e.RowIndex].Cells["userid"].FormattedValue.ToString();
-
-            if (userdatagrid.Columns[e.ColumnIndex].Name == "deletebut" | userdatagrid.Columns[e.ColumnIndex].Name == "editbut")
+            try
             {
-               
-                if (role != "admin" | Form1.usernamelog==username)
+                string role = userdatagrid.Rows[e.RowIndex].Cells["role"].FormattedValue.ToString();
+                string username = userdatagrid.Rows[e.RowIndex].Cells["username"].FormattedValue.ToString();
+                string id = userdatagrid.Rows[e.RowIndex].Cells["userid"].FormattedValue.ToString();
+
+                if (userdatagrid.Columns[e.ColumnIndex].Name == "deletebut" | userdatagrid.Columns[e.ColumnIndex].Name == "editbut")
                 {
-                    if (userdatagrid.Columns[e.ColumnIndex].Name == "deletebut")
+
+                    if (role != "admin" | Form1.usernamelog == username)
                     {
-                        DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this user ?", "Are you sure ?", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes) {
-                            if (DatabaseDev.deleteUser(id))
+                        if (userdatagrid.Columns[e.ColumnIndex].Name == "deletebut")
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this user ?", "Are you sure ?", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                MessageBox.Show("Success !");
-                                if (username == Form1.usernamelog)
+                                if (DatabaseDev.deleteUser(id))
                                 {
-                                    this.Hide();
-                                    Form1 form = new Form1();
-                                    Form1.usernamelog = null;
-                                    form.ShowDialog();
-                                    this.Close();
+                                    MessageBox.Show("Success !");
+                                    if (username == Form1.usernamelog)
+                                    {
+                                        this.Hide();
+                                        Form1 form = new Form1();
+                                        Form1.usernamelog = null;
+                                        form.ShowDialog();
+                                        this.Close();
 
 
+                                    }
+                                    else
+                                    {
+                                        userdatagrid.Rows[e.RowIndex].Visible = false;
+
+                                    }
                                 }
-                                else
-                                {
-                                    userdatagrid.Rows[e.RowIndex].Visible = false;
+                            }
 
-                                }
+                        }
+                        else if (userdatagrid.Columns[e.ColumnIndex].Name == "editbut")
+                        {
+                            edituserform form = new edituserform(id);
+                            form.ShowDialog();
+                            var user = DatabaseDev.getUser(id);
+                            if (username == Form1.usernamelog)
+                            {
+                                this.Hide();
+                                Form1 form2 = new Form1();
+                                Form1.usernamelog = null;
+                                form2.ShowDialog();
+                                this.Close();
+
+                            }
+                            else
+                            {
+                                user.Read();
+                                userdatagrid.Rows[e.RowIndex].Cells["username"].Value = user["username"].ToString();
+                                userdatagrid.Rows[e.RowIndex].Cells["password"].Value = new string('*', user["password"].ToString().Length);
+                                userdatagrid.Rows[e.RowIndex].Cells["role"].Value = user["role"].ToString();
                             }
                         }
 
+
                     }
-                    else if (userdatagrid.Columns[e.ColumnIndex].Name == "editbut")
+                    else
                     {
-                        edituserform form = new edituserform(id);
-                        form.ShowDialog();
-                        var user = DatabaseDev.getUser(id);
-                        if (username == Form1.usernamelog)
-                        {
-                            this.Hide();
-                            Form1 form2 = new Form1();
-                            Form1.usernamelog = null;
-                            form2.ShowDialog();
-                            this.Close();
+                        MessageBox.Show("No permission");
 
-                        }
-                        else
-                        {
-                            user.Read();
-                            userdatagrid.Rows[e.RowIndex].Cells["username"].Value = user["username"].ToString();
-                            userdatagrid.Rows[e.RowIndex].Cells["password"].Value = new string('*', user["password"].ToString().Length);
-                            userdatagrid.Rows[e.RowIndex].Cells["role"].Value = user["role"].ToString();
-                        }
                     }
-                    
+
+
 
                 }
-                else
-                {
-                    MessageBox.Show("No permission");
-
-                }
-
-
+            }catch (Exception ex)
+            {
 
             }
         }

@@ -121,53 +121,59 @@ namespace Ofthalmiatrio
 
         private void medicingridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string ids = medicingridview.Rows[e.RowIndex].Cells["ids"].FormattedValue.ToString();
-            if (medicingridview.Columns[e.ColumnIndex].Name == "delete")
+            try
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this medicine ?", "Are you sure ?", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                string ids = medicingridview.Rows[e.RowIndex].Cells["ids"].FormattedValue.ToString();
+                if (medicingridview.Columns[e.ColumnIndex].Name == "delete")
                 {
-                    DatabaseDev.deleteMedicine(ids);
-                    medicingridview.Rows[e.RowIndex].Visible = false;
+                    DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this medicine ?", "Are you sure ?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DatabaseDev.deleteMedicine(ids);
+                        medicingridview.Rows[e.RowIndex].Visible = false;
+                    }
                 }
-            }
-            else if (medicingridview.Columns[e.ColumnIndex].Name == "Edit")
-            {
-                updateMedicineForm form = new updateMedicineForm(ids);
-                form.ShowDialog();
-                var update_values = DatabaseDev.getMedicine(ids);
-                update_values.Read();
-                medicingridview.Rows[e.RowIndex].Cells["farmname"].Value = update_values["onoma"].ToString();
-                medicingridview.Rows[e.RowIndex].Cells["types"].Value = update_values["typos"].ToString();
-                medicingridview.Rows[e.RowIndex].Cells["symp"].Value = update_values["symptomata"].ToString();
-                medicingridview.Rows[e.RowIndex].Cells["proms"].Value = update_values["promitheftes"].ToString();
-
-
-            }
-            else if (medicingridview.Columns[e.ColumnIndex].Name == "Save")
-            {
-                string path_name;
-                SaveFileDialog save = new SaveFileDialog();
-                save.Filter = "Pdf Files|*.pdf";
-                if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                else if (medicingridview.Columns[e.ColumnIndex].Name == "Edit")
                 {
-                    path_name = save.FileName;
-                     
-                    
-                    PdfMaker.getMedicine(path_name,DatabaseDev.getMedicine(ids));
-                    
+                    updateMedicineForm form = new updateMedicineForm(ids);
+                    form.ShowDialog();
+                    var update_values = DatabaseDev.getMedicine(ids);
+                    update_values.Read();
+                    medicingridview.Rows[e.RowIndex].Cells["farmname"].Value = update_values["onoma"].ToString();
+                    medicingridview.Rows[e.RowIndex].Cells["types"].Value = update_values["typos"].ToString();
+                    medicingridview.Rows[e.RowIndex].Cells["symp"].Value = update_values["symptomata"].ToString();
+                    medicingridview.Rows[e.RowIndex].Cells["proms"].Value = update_values["promitheftes"].ToString();
+
+
                 }
+                else if (medicingridview.Columns[e.ColumnIndex].Name == "Save")
+                {
+                    string path_name;
+                    SaveFileDialog save = new SaveFileDialog();
+                    save.Filter = "Pdf Files|*.pdf";
+                    if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        path_name = save.FileName;
+
+
+                        PdfMaker.getMedicine(path_name, DatabaseDev.getMedicine(ids));
+
+                    }
 
 
 
-            }
-            else if (medicingridview.Columns[e.ColumnIndex].Name == "Print")
+                }
+                else if (medicingridview.Columns[e.ColumnIndex].Name == "Print")
+                {
+
+                    PdfMaker.getMedicine($"{"print.pdf"}", DatabaseDev.getMedicine(ids));
+                    PdfMaker.print("print.pdf");
+
+
+                }
+            }catch (Exception a)
             {
-             
-                PdfMaker.getMedicine($"{"print.pdf"}", DatabaseDev.getMedicine(ids));
-                PdfMaker.print("print.pdf");
-
-
+                
             }
         }
 

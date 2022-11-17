@@ -40,6 +40,8 @@
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
             System.Windows.Forms.Label label24;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lastv = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -264,9 +266,8 @@
             this.lastv.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lastv.Location = new System.Drawing.Point(498, 12);
             this.lastv.Name = "lastv";
-            this.lastv.Size = new System.Drawing.Size(55, 13);
+            this.lastv.Size = new System.Drawing.Size(0, 13);
             this.lastv.TabIndex = 33;
-            this.lastv.Text = "Last Visit:";
             // 
             // panel1
             // 
@@ -315,6 +316,15 @@
             // 
             this.rantevougrid.AllowUserToAddRows = false;
             this.rantevougrid.AllowUserToDeleteRows = false;
+            this.rantevougrid.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rantevougrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.rantevougrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rantevougrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ids,
@@ -341,9 +351,18 @@
             this.Print,
             this.Delete,
             this.Edit});
+            this.rantevougrid.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.rantevougrid.Location = new System.Drawing.Point(3, 61);
             this.rantevougrid.Name = "rantevougrid";
             this.rantevougrid.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rantevougrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.rantevougrid.RowTemplate.Height = 25;
             this.rantevougrid.Size = new System.Drawing.Size(988, 333);
             this.rantevougrid.TabIndex = 0;
