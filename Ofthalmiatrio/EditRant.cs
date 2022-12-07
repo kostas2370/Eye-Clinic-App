@@ -45,14 +45,39 @@ namespace Ofthalmiatrio
         {
             try
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to update this visit ?", "Are you sure ?", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if (myopia_aristero.Text != "0" & ypermetropia_aristero.Text != "0")
                 {
-                    DatabaseDev.updateVisit(id, myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text,axa.Text,axd.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapia.Text, farmak.Text, diarkeia_therapeias.Text, apot.Text);
-                    MessageBox.Show("Success");
-                    this.Close();
+
+                    MessageBox.Show("You cant have values more than 0 in both fields (myopia aristero and ypermetropia aristero) ");
+                }
+                else if (myopia_dexio.Text != "0" & ypermetropia_dexio.Text != "0")
+                {
+
+                    MessageBox.Show("You cant have values more than 0 in both fields (myopia dexio and ypermetropia dexio) ");
+                }
+                else if (astigmatismos_aristero.Text != "0" & axa.Text == "0")
+                {
+                    MessageBox.Show("You must add axis value when u have astigmatismos ");
+
+                }
+                else if (astigmatismos_dexio.Text != "0" & axd.Text == "0")
+                {
+                    MessageBox.Show("You must add axis value when u have astigmatismos ");
+
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure that you want to update this visit ?", "Are you sure ?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DatabaseDev.updateVisit(id, myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text, axa.Text, axd.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapia.Text, farmak.Text, diarkeia_therapeias.Text, apot.Text);
+                        MessageBox.Show("Success");
+                        this.Close();
+                    }
                 }
             
+
+
             }catch (Exception x)
             {
 

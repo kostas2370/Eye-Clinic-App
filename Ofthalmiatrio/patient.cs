@@ -288,16 +288,46 @@ namespace Ofthalmiatrio
 
                         EditRant form = new EditRant(rantevous);
                         form.ShowDialog();
-                        var new_data = DatabaseDev.getVisit(ids);
-                        new_data.Read();
-                        this.Close();
+                        var new_data = DatabaseDev.getVisit(AMKA.Text,ids);
+                    new_data.Read();
+                        rantevougrid.Rows[e.RowIndex].Cells["mya"].Value = new_data["myopia_aristero"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["myd"].Value = new_data["myopia_dexio"].ToString();
+                    rantevougrid.Rows[e.RowIndex].Cells["pra"].Value = new_data["presviopia_aristero"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["prd"].Value = new_data["presviopia_dexio"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["ypa"].Value = new_data["ypermatropia_aristero"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["ypd"].Value = new_data["ypermatropia_dexio"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["asa"].Value = new_data["astigmatismos_aristero"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["asd"].Value = new_data["astigmatismos_dexio"].ToString();
+            
+                        rantevougrid.Rows[e.RowIndex].Cells["axoa"].Value = new_data["axonas_aristera"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["axod"].Value = new_data["axonas_dexia"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["piea"].Value = new_data["piesh_aristero"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["pied"].Value = new_data["piesh_dexio"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["asthen"].Value = new_data["asthenia"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["therap"].Value = new_data["therapia"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["farmak"].Value = new_data["farmaka"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["diark"].Value = new_data["diarkeia_therapeias"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["apot"].Value = new_data["Apotelesmata"].ToString();
+                        rantevougrid.Rows[e.RowIndex].Cells["kostos"].Value = new_data["kostos"].ToString();
 
 
 
-                    }
+
+                              
+                                 
+                         
+                                  
 
 
-                    else
+
+
+
+
+
+                }
+
+
+                else
                     {
                         DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this visit ?", "Are you sure ?", MessageBoxButtons.YesNo);
 

@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.axd = new System.Windows.Forms.TextBox();
+            this.axa = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.apot = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.hmerominia = new System.Windows.Forms.Label();
@@ -65,10 +69,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.axa = new System.Windows.Forms.TextBox();
-            this.axd = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,6 +119,40 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(465, 686);
             this.panel3.TabIndex = 5;
+            // 
+            // axd
+            // 
+            this.axd.Location = new System.Drawing.Point(204, 418);
+            this.axd.Name = "axd";
+            this.axd.Size = new System.Drawing.Size(50, 23);
+            this.axd.TabIndex = 51;
+            // 
+            // axa
+            // 
+            this.axa.Location = new System.Drawing.Point(204, 389);
+            this.axa.Name = "axa";
+            this.axa.Size = new System.Drawing.Size(50, 23);
+            this.axa.TabIndex = 50;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(6, 420);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 21);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Άξονας Δεξιά:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(7, 389);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 21);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "Άξονας αριστερά:";
             // 
             // apot
             // 
@@ -439,40 +473,6 @@
             this.label7.Size = new System.Drawing.Size(101, 30);
             this.label7.TabIndex = 7;
             this.label7.Text = "Edit visit :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(7, 389);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 21);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Άξονας αριστερά:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(6, 420);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 21);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Άξονας Δεξιά:";
-            // 
-            // axa
-            // 
-            this.axa.Location = new System.Drawing.Point(204, 391);
-            this.axa.Name = "axa";
-            this.axa.Size = new System.Drawing.Size(50, 23);
-            this.axa.TabIndex = 50;
-            // 
-            // axd
-            // 
-            this.axd.Location = new System.Drawing.Point(204, 418);
-            this.axd.Name = "axd";
-            this.axd.Size = new System.Drawing.Size(50, 23);
-            this.axd.TabIndex = 51;
             // 
             // EditRant
             // 
