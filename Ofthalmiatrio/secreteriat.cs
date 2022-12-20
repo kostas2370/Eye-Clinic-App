@@ -115,7 +115,24 @@ namespace Ofthalmiatrio
 
 
                     j = DatabaseDev.addVisit(AMKA_CHOICES.Text, visit_date.Value.ToString("yyyy-MM-dd"), myopia_aristero.Text, myopia_dexio.Text, presviopia_aristero.Text, presviopia_dexio.Text, ypermetropia_aristero.Text, ypermetropia_dexio.Text, astigmatismos_aristero.Text, astigmatismos_dexio.Text, axonas_aristera.Text, axonas_dexia.Text, piesh_aristero.Text, piesh_dexio.Text, astheneia.Text, therapeia.Text, farmaka.Text, diarkeia_therapeias.Text, kostos.Text);
-                   
+                    myopia_aristero.Text = "0";
+                    myopia_dexio.Text = "0";
+                    presviopia_aristero.Text = "0";
+                    presviopia_dexio.Text = "0";
+                    ypermetropia_aristero.Text = "0";
+                    ypermetropia_dexio.Text = "0";
+                    astigmatismos_aristero.Text = "0";
+                    astigmatismos_dexio.Text = "0";
+                    piesh_aristero.Text = "0";
+                    piesh_dexio.Text = "0";
+                    axonas_aristera.Text = "0";
+                    axonas_dexia.Text = "0";
+                    astheneia.Text = "";
+                    AMKA_CHOICES.Text = "";
+                    therapeia.Text = "";
+                    farmaka.Text = "";
+                    diarkeia_therapeias.Text = "30";
+                    kostos.Text = "20";
 
                 }
                 catch (Exception exception)

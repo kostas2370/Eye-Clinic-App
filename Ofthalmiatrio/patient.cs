@@ -367,14 +367,18 @@ namespace Ofthalmiatrio
             if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path_name = save.FileName;
-                PdfMaker.getRantevou(path_name,patient_info,rantevou_info,gyalia_list);
+               
+                    PdfMaker.getRantevou(path_name, patient_info, rantevou_info, gyalia_list);
 
+
+
+                }
 
             }
 
 
 
-        }
+        
 
         private void print_butt_Click(object sender, EventArgs e)
         {
