@@ -11,7 +11,7 @@ namespace Ofthalmiatrio
 {
     internal class DatabaseDev
     {
-
+        private static bool check=true;
         private static SQLiteConnection conn;
         private static SQLiteCommand sqlite_cmd;
         /*
@@ -25,11 +25,13 @@ namespace Ofthalmiatrio
         public static void createDb()
         {
 
+            if (check)
+            {
 
-
-            conn = new SQLiteConnection("Data Source = database.db; Version = 3; New = True; Compress = True; ");
-            conn.Open();
-
+                conn = new SQLiteConnection("Data Source = database.db; Version = 3; New = True; Compress = True; ");
+                conn.Open();
+                check = false;
+            }
 
         }
 
@@ -375,6 +377,8 @@ namespace Ofthalmiatrio
             if ( j == 1)
             {
                 string getID = "SELECT * FROM user ORDER BY id DESC LIMIT 1";
+                sqlite_cmd = conn.CreateCommand();
+
                 sqlite_cmd.CommandText = getID;
                 sqlite_cmd.CommandType = CommandType.Text;
                 SQLiteDataReader myReader = sqlite_cmd.ExecuteReader();

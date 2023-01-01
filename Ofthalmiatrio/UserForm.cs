@@ -76,23 +76,30 @@ namespace Ofthalmiatrio
                 DialogResult dialogResult = MessageBox.Show("Are you sure that you want to add this user ?", "Are you sure ?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    string user = DatabaseDev.addUser(usernametext.Text, passwordtext.Text, roles.Text);
-                    if (user != null)
+                    try
                     {
-                        MessageBox.Show("Success !");
-                        userdatagrid.Rows.Add(user, usernametext.Text, passwordtext.Text, roles.Text);
-                        roles.Text = "no role";
-                        usernametext.Text = "";
-                        passwordtext.Text = "";
-                        password_ver_text.Text = "";
+                        string user = DatabaseDev.addUser(usernametext.Text, passwordtext.Text, roles.Text);
+                        if (user != null)
+                        {
+                            MessageBox.Show("Success !");
+                            userdatagrid.Rows.Add(user, usernametext.Text, passwordtext.Text, roles.Text);
+                            roles.Text = "no role";
+                            usernametext.Text = "";
+                            passwordtext.Text = "";
+                            password_ver_text.Text = "";
 
 
-                    }
-                    else
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("This user already exists !");
+                        }
+                    }catch (Exception err)
                     {
                         MessageBox.Show("This user already exists !");
                     }
-                }
+                    }
 
             }
 
