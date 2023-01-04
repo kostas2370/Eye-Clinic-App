@@ -28,7 +28,7 @@ namespace Ofthalmiatrio
             if (check)
             {
 
-                conn = new SQLiteConnection($"Data Source = database.db; Version = 3; New = True; Compress = True; ");
+                conn = new SQLiteConnection($"Data Source = {Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}/db/database.db; Version = 3; New = True; Compress = True; ");
                 conn.Open();
                 check = false;
             }

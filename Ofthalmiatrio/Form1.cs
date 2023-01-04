@@ -21,7 +21,12 @@ namespace Ofthalmiatrio
 
             if it exists it just create the connection
             */
-            if (!(File.Exists("database.db")))
+
+            if (!Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}/db"))
+            {
+                Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}/db");
+            }
+            if (!(File.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}/db/database.db")))
           
             {
                 DatabaseDev.createDb();
