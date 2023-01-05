@@ -126,7 +126,7 @@ namespace Ofthalmiatrio
         }
 
         //get astheneis
-        public static SQLiteDataReader getAstheneis(String input, string mode = "AMKA")
+        public static SQLiteDataReader getPatients(String input, string mode = "AMKA")
         {
             sqlite_cmd = conn.CreateCommand();
             string getPats= "SELECT * FROM astheneis";
@@ -144,7 +144,7 @@ namespace Ofthalmiatrio
         }
 
         //update astheneis
-        public static bool updateAstheneis(string AMKA, string OnomaTeponymo, string asfaleia)
+        public static bool updatePatient(string AMKA, string OnomaTeponymo, string asfaleia)
         {
             sqlite_cmd = conn.CreateCommand();
             string editAstheneis = $"UPDATE astheneis SET OnomaTeponimo='{OnomaTeponymo}',Asfaleia='{asfaleia}' WHERE AMKA = {AMKA}";
@@ -156,7 +156,7 @@ namespace Ofthalmiatrio
         }
 
         //delete astheneis
-        public static bool deleteAstheneis(string AMKA)
+        public static bool deletePatient(string AMKA)
         {
             sqlite_cmd = conn.CreateCommand();
             string deleteAstheneis = $"DELETE from astheneis WHERE AMKA='{AMKA}'";

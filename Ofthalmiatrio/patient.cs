@@ -252,7 +252,7 @@ namespace Ofthalmiatrio
             {
                 string ids = rantevougrid.Rows[e.RowIndex].Cells["ids"].Value.ToString();
                 var rantevous = DatabaseDev.getVisit(AMKA.Text,ids);
-                var patient=DatabaseDev.getAstheneis(AMKA.Text);
+                var patient=DatabaseDev.getPatients(AMKA.Text);
                
                 
                 
@@ -359,7 +359,7 @@ namespace Ofthalmiatrio
         {
 
             string path_name;
-            var patient_info = DatabaseDev.getAstheneis(AMKA.Text);
+            var patient_info = DatabaseDev.getPatients(AMKA.Text);
             var rantevou_info = DatabaseDev.getLastVisit(AMKA.Text);
             SaveFileDialog save = new SaveFileDialog();
          
@@ -382,7 +382,7 @@ namespace Ofthalmiatrio
 
         private void print_butt_Click(object sender, EventArgs e)
         {
-            var patient_info = DatabaseDev.getAstheneis(AMKA.Text);
+            var patient_info = DatabaseDev.getPatients(AMKA.Text);
             var rantevou_info = DatabaseDev.getLastVisit(AMKA.Text);
             PdfMaker.getRantevou($"x{id}.pdf",patient_info,rantevou_info,gyalia_list);
             PdfMaker.print($"x{id}.pdf");
@@ -414,7 +414,7 @@ namespace Ofthalmiatrio
             {
 
                 string ids = rantevougrid.Rows[e.RowIndex].Cells["ids"].FormattedValue.ToString();
-                var asthenhs = DatabaseDev.getAstheneis(AMKA.Text);
+                var asthenhs = DatabaseDev.getPatients(AMKA.Text);
                 var rantevou = DatabaseDev.getVisit(AMKA.Text, id: ids);
                 visitform form = new visitform(asthenhs, rantevou);
                 form.ShowDialog();

@@ -49,7 +49,7 @@ namespace Ofthalmiatrio
             kostos.Text = "20";
 
 
-            var data = DatabaseDev.getAstheneis(null, mode: "all");
+            var data = DatabaseDev.getPatients(null, mode: "all");
             if (data.HasRows)
             {
                 while (data.Read())
@@ -307,7 +307,7 @@ namespace Ofthalmiatrio
             {
 
                 string AMKA = patientdatagrid.Rows[e.RowIndex].Cells["AMKA_C"].FormattedValue.ToString();
-                var info = DatabaseDev.getAstheneis(AMKA);
+                var info = DatabaseDev.getPatients(AMKA);
                 patient form = new patient(info);
                 form.ShowDialog();
 
@@ -330,7 +330,7 @@ namespace Ofthalmiatrio
                     if (dialogResult == DialogResult.Yes)
                     {
 
-                        bool j = DatabaseDev.deleteAstheneis(AMKA);
+                        bool j = DatabaseDev.deletePatient(AMKA);
                         if (j)
                         {
                             MessageBox.Show("Deleted succesfully");
@@ -341,11 +341,11 @@ namespace Ofthalmiatrio
                 }
                 else if (patientdatagrid.Columns[e.ColumnIndex].Name == "edit_c")
                 {
-                    var asthen = DatabaseDev.getAstheneis(AMKA);
+                    var asthen = DatabaseDev.getPatients(AMKA);
                     asthen.Read();
                     editpatient form = new editpatient(asthen["AMKA"].ToString(), asthen["OnomaTeponimo"].ToString(), asthen["asfaleia"].ToString());
                     form.ShowDialog();
-                    asthen = DatabaseDev.getAstheneis(AMKA);
+                    asthen = DatabaseDev.getPatients(AMKA);
                     asthen.Read();
                     patientdatagrid.Rows[e.RowIndex].Cells[1].Value = asthen["OnomaTeponimo"].ToString();
 

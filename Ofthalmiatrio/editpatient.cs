@@ -41,7 +41,7 @@ namespace Ofthalmiatrio
                 DialogResult dialogResult = MessageBox.Show("Are you sure that you want to update this user ?", "Are you sure ?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    bool t = DatabaseDev.updateAstheneis(amka, fullname.Text, asfaleia.Text);
+                    bool t = DatabaseDev.updatePatient(amka, fullname.Text, asfaleia.Text);
                     if (t)
                     {
 

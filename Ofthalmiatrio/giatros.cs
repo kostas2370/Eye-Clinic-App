@@ -44,7 +44,7 @@ namespace Ofthalmiatrio
             diarkeia_therapeias.Text = "30";
             kostos.Text = "20";
 
-            var data = DatabaseDev.getAstheneis(null, mode: "all");
+            var data = DatabaseDev.getPatients(null, mode: "all");
             if (data.HasRows)
             {
                 while (data.Read())
@@ -243,7 +243,7 @@ namespace Ofthalmiatrio
             {
 
                 string AMKA = patientdatagrid.Rows[e.RowIndex].Cells["AMKA_C"].FormattedValue.ToString();
-                var info = DatabaseDev.getAstheneis(AMKA);
+                var info = DatabaseDev.getPatients(AMKA);
                 patient form = new patient(info);
                 form.ShowDialog();
 

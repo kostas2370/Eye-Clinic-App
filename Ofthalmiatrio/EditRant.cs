@@ -84,5 +84,10 @@ namespace Ofthalmiatrio
                 MessageBox.Show(x.Message);
             }
         }
+
+        private void astheneia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

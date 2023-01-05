@@ -263,6 +263,7 @@
             this.astheneia.Size = new System.Drawing.Size(174, 110);
             this.astheneia.TabIndex = 34;
             this.astheneia.Text = "";
+            this.astheneia.TextChanged += new System.EventHandler(this.astheneia_TextChanged);
             // 
             // label20
             // 
