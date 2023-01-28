@@ -51,6 +51,7 @@ Together, they have worked to bring this application to life and ensure its func
 ![image](https://user-images.githubusercontent.com/96636678/215232304-0ccccdb3-c4d5-465d-a21a-87f241cba97f.png)
 
 **Charts :**
+
 ![image](https://user-images.githubusercontent.com/96636678/215232332-a345cd8b-d1a0-4d55-9600-d42bcd5ff0fb.png)
 
 **Patients information :**
