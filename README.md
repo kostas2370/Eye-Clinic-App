@@ -4,6 +4,7 @@ You can download setup file  [here](https://files.fm/u/bm7jnjser)
 Default login credentials :
 
 **username :** admin
+
 **password :** admin
 
 The **Eye Clinic App** is a versatile and user-friendly application designed for managing patients and visits in a clinic setting. The app features a variety of tools for managing patient information, including the ability to:
