@@ -1,6 +1,6 @@
 **Eye Clinic App**
 
-![]([media/2803777945c47a979daba949ed63c6d3.png](https://prnt.sc/ovQDuJft56Oh))
+![]([https://prnt.sc/ovQDuJft56Oh](https://img001.prntscr.com/file/img001/K4nuMs1iR9OKzvzAUtYgVA.png))
 
 The Eye Clinic App is a versatile and user-friendly application designed for managing patients and visits in a clinic setting. The app features a variety of tools for managing patient information, including the ability to:
 
