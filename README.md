@@ -1,6 +1,6 @@
 **Eye Clinic App**
 
-![]([https://prnt.sc/ovQDuJft56Oh](https://img001.prntscr.com/file/img001/K4nuMs1iR9OKzvzAUtYgVA.png))
+![image](https://user-images.githubusercontent.com/96636678/215232304-0ccccdb3-c4d5-465d-a21a-87f241cba97f.png)
 
 The Eye Clinic App is a versatile and user-friendly application designed for managing patients and visits in a clinic setting. The app features a variety of tools for managing patient information, including the ability to:
 
@@ -19,16 +19,14 @@ The app also features four different user types, each with their own set of perm
 
 -   View detailed graphs and charts of patient progress, such as visual acuity, intraocular pressure, and more
 
-    ![](media/065ddd93b679b598cd613e973ee09e53.png)
+    ![image](https://user-images.githubusercontent.com/96636678/215232332-a345cd8b-d1a0-4d55-9600-d42bcd5ff0fb.png)
 
 -   Make recommendations on what glasses or contact lenses a patient should get based on their unique eye condition and prescription
 
-    ![](media/c3c0e33b5cee6f9d7c302d4ac1b95af2.png)
-
+![image](https://user-images.githubusercontent.com/96636678/215232344-7c665954-c2f8-4134-9163-e57ec9212dac.png)
 -   Generate PDF receipts and invoices for patients, including detailed information on the services provided and the cost of each service
 
-    ![](media/a3891161a1bcd63853f3d068f817127a.png)
-
+![image](https://user-images.githubusercontent.com/96636678/215232351-caae5ad8-25db-4936-a1e0-6df29d4afc46.png)
 -   store and track patient's medical history and previous visit
 -   Create reminders for patients' follow-up appointments
 -   Securely store patient data and ensure compliance with data privacy regulations
@@ -48,4 +46,4 @@ Other screenshots :
 
 **Medicine Tab :**
 
-![](media/8d363efbad98511e9756b124d0075aa3.png)
+![image](https://user-images.githubusercontent.com/96636678/215232359-44984278-8a93-49dd-95c7-d8020e90e78c.png)
